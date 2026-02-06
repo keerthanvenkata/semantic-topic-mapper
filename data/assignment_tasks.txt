@@ -1,0 +1,106 @@
+SEMANTIC DOCUMENT INTELLIGENCE ASSIGNMENT
+==========================================
+
+TASK 1: Semantic Topic Mapping
+------------------------------
+
+Objective:
+Create an intelligent document navigation system.
+
+Requirements:
+
+1. Extract ALL topics from the document (not just sequentially numbered ones)
+
+2. Build a topic relationship map showing:
+   - Parent-child hierarchies (e.g., Topic 5 → 5.1 → 5.1.a)
+   - Cross-references (e.g., Topic 12 "See Topic 8")
+   - Forward references (e.g., Topic 3 mentions "as detailed in Topic 22")
+   - Backward references (e.g., Topic 30 modifies Topic 4)
+
+3. Identify "orphan content"
+   Text that is not clearly associated with any topic.
+
+Agentic Challenge:
+
+Design an agent that can:
+- Automatically detect topic boundary ambiguities
+- Flag when topic numbering is inconsistent
+- Handle appendices that insert new subtopics
+
+Deliverables:
+
+- topic_map.json
+  Complete topic hierarchy
+
+- cross_reference_graph.pdf
+  Visual relationship diagram
+
+- navigation_agent_design.md
+  Architecture for intelligent navigation
+
+- ambiguity_report.csv
+  Flagged issues with resolution strategies
+
+Hidden Trap:
+
+Topic 18.3 exists, but Topic 18.2 is missing.
+Topic 18 cross-references 18.2.
+
+How does your agent handle this?
+
+---
+
+TASK 2: Entity Recognition & Classification
+-------------------------------------------
+
+Objective:
+Build an entity extraction system.
+
+Requirements:
+
+1. Identify ALL entities mentioned in the document, including:
+
+   Organizational:
+   - Government bodies
+   - Oversight committees
+
+   Roles:
+   - Investors
+   - Advisors
+   - Other defined participants
+
+   Temporal:
+   - Deadlines
+   - Grace periods
+   - Time-bound obligations
+
+2. Create entity profiles containing:
+   - Entity ID and type
+   - First mention location
+   - All references throughout the document
+   - Relationships to other entities
+   - Obligations and rights associated with each entity
+
+Agentic Challenge:
+
+Design an agentic pipeline using a modern technology stack.
+
+Deliverables:
+
+- entity_catalogue.csv
+  Complete entity inventory
+
+- entity_relationships.json
+  Graph structure of relationships
+
+- entity_extraction_pipeline.pdf
+  Agent architecture
+
+- disambiguation_logics.md
+  Logic for resolving entity references
+
+Hidden Trap:
+
+"Zone-C Advisors" appears multiple times, but "Zone-C" is never clearly defined in the document.
+
+How does your system handle undefined or partially defined entities?

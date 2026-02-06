@@ -1,0 +1,652 @@
+GLOBAL FINANCIAL SERVICES ADVISORY FRAMEWORK (GFSAF) 
+Regulatory Document Version 3.2 
+Effective: January 1, 2096 
+Issued by: International Financial Oversight Commission (IFOC) 
+TOPIC 1: DEFINITIONS AND SCOPE 
+1.1 Purpose 
+This Framework establishes comprehensive standards for financial advisory services, investment management, and fiduciary obligations across participating jurisdictions. 
+1.2 Definitions 
+For purposes of this Framework: 
+(a) "Financial Institution" means any entity engaged in providing financial advisory 
+services, investment management, or fiduciary services with assets under management exceeding $10 million or serving more than 50 clients annually. 
+(b) "Qualified Advisor" means an individual who: 
+(i) Holds appropriate licensure in their jurisdiction 
+(ii) Has completed mandatory training requirements per Topic 8 
+(iii) Maintains professional liability insurance per Topic 12 
+(iv) Has no disqualifying violations per Topic 22 
+(c) "Client" means any natural person, corporation, trust, or entity receiving financial advisory services. 
+(d) "Zone-C Advisors" means financial advisors who maintain substantial operations in Zone-C and meet the enhanced qualification requirements specified herein. 
+1.3 Applicability 
+This Framework applies to all Financial Institutions and Qualified Advisors operating 
+within participating jurisdictions, including Zone-A, Zone-B, and Zone-C territories. 
+TOPIC 2: REGISTRATION AND LICENSING REQUIREMENTS 
+2.1 Initial Registration 
+All Financial Institutions must register with their primary jurisdictional authority within 
+60 days of commencing operations. 
+2.2 Annual Renewal 
+Registration must be renewed annually by December 31st, accompanied by: 
+(a) Updated Form ADV or equivalent disclosure 
+(b) Proof of insurance per Topic 12 
+(c) Compliance certification per Topic 15 
+(d) Fee payment per Schedule A 
+2.3 Multi-Jurisdictional Operations 
+Financial Institutions operating across multiple zones must: 
+(a) Register in each zone where clients are domiciled 
+(b) Designate a Zone-C Advisor for clients in Zone-C 
+(c) Comply with the most stringent requirements among applicable jurisdictions 
+TOPIC 3: FIDUCIARY OBLIGATIONS 
+3.1 Duty of Care 
+Financial Institutions shall exercise the care, skill, prudence, and diligence that a 
+prudent advisor would exercise in similar circumstances, as detailed in Topic 22. 
+3.2 Duty of Loyalty 
+Advisors must act in the best interests of clients and disclose all material conflicts of 
+interest within 10 business days of discovery. 
+3.3 Disclosure Requirements 
+All material facts affecting advisory relationships must be disclosed, including: 
+(a) Compensation structures 
+(b) Affiliated entities 
+(c) Custody arrangements 
+(d) Beneficial ownership per Topic 31 
+TOPIC 4: CLIENT QUALIFICATION AND SUITABILITY 
+4.1 Know Your Client (KYC) 
+Before accepting any client, Financial Institutions must: 
+(a) Verify client identity per Topic 6 
+(b) Assess financial sophistication 
+(c) Determine investment objectives 
+(d) Evaluate risk tolerance 
+(e) Document all findings unless Topic 15 exemption applies 
+4.2 Ongoing Monitoring 
+Client profiles must be updated: 
+(a) Annually at minimum 
+(b) Upon material change in circumstances 
+(c) Before recommending significant portfolio changes 
+4.3 Restricted Clients 
+Financial Institutions may not accept clients who: 
+(a) Are subject to sanctions per Topic 19 
+(b) Cannot satisfy enhanced due diligence per Topic 30 
+(c) Reside in non-participating jurisdictions unless authorized under Topic 27 
+TOPIC 5: ADVISORY SERVICES STANDARDS 
+5.1 Investment Recommendations 
+All investment recommendations must: 
+(a) Be suitable for the client per Topic 4.2 
+(b) Consider diversification requirements 
+(c) Account for tax implications 
+(d) Be documented in writing 
+5.1.a High-Risk Investments 
+For high-risk investments (as defined in Topic 22), additional disclosure requirements apply per Topic 18. 
+5.2 Portfolio Management 
+Discretionary portfolio management requires: 
+(a) Written authorization from client 
+(b) Investment Policy Statement (IPS) 
+(c) Quarterly performance reporting 
+(d) Annual compliance review per Topic 15 
+TOPIC 6: ANTI-MONEY LAUNDERING (AML) COMPLIANCE 
+6.1 Customer Identification Program (CIP) 
+Financial Institutions must implement robust CIP procedures including: 
+(a) Government-issued identification verification 
+(b) Address verification 
+(c) Beneficial ownership identification per Topic 31 
+(d) Enhanced due diligence for Zone-C operations 
+6.2 Suspicious Activity Reporting 
+Suspicious activities must be reported within: 
+(a) 24 hours for terrorism-related activities 
+(b) 30 days for other suspicious activities 
+(c) Per procedures established under Topic 9 
+6.3 Recordkeeping 
+AML records must be retained for minimum 7 years unless longer period required by Topic 30. 
+TOPIC 7: COMPENSATION AND FEE DISCLOSURE 
+7.1 Fee Structures 
+Financial Institutions may charge: 
+(a) Assets-under-management (AUM) fees not exceeding 2% annually 
+(b) Hourly fees for consultation 
+(c) Performance-based fees only for Qualified Clients per Topic 13 
+(d) Transaction-based compensation subject to disclosure 
+7.2 Prohibition on Excessive Fees 
+Fees must be reasonable and competitive with industry standards. Excessive fees constitute a violation subject to penalties per Topic 25. 
+7.3 Third-Party Compensation 
+All third-party compensation must be disclosed, including: 
+(a) Referral fees 
+(b) Revenue sharing arrangements 
+(c) Soft dollar arrangements 
+(d) Payments from Zone-C Advisors 
+TOPIC 8: PROFESSIONAL QUALIFICATIONS AND TRAINING 
+8.1 Minimum Qualifications 
+Qualified Advisors must possess: 
+(a) Bachelor's degree or equivalent 
+(b) Relevant professional certification (CFP, CFA, or equivalent) 
+(c) 3 years of industry experience 
+(d) Clean regulatory record per Topic 22 
+8.2 Continuing Education 
+Annual continuing education requirements: 
+(a) 20 hours of approved coursework 
+(b) 5 hours of ethics training 
+(c) 10 hours of technical training 
+(d) Specialized training for Zone-C operations 
+8.3 Examination Requirements 
+Initial qualification requires passing: 
+(a) General Knowledge Examination (minimum 75% score) 
+(b) Ethics Examination (minimum 85% score) 
+(c) Jurisdiction-specific examination where applicable 
+TOPIC 9: AUDIT AND COMPLIANCE PROCEDURES 
+9.1 Internal Controls 
+Financial Institutions must maintain: 
+(a) Written compliance policies and procedures 
+(b) Chief Compliance Officer (CCO) designation 
+(c) Annual compliance review 
+(d) Internal audit function (for firms with AUM > $100 million) 
+9.2 External Audits 
+Annual financial statement audits required for: 
+(a) Institutions with AUM exceeding $50 million 
+(b) Institutions with custody of client assets 
+(c) Unless exempt under Topic 15 
+**NOTE: Audit not required if Topic 15 exemption applies** 
+9.3 Regulatory Examinations 
+Institutions must cooperate with regulatory examinations and provide: 
+(a) Access to all books and records 
+(b) Employee interviews 
+(c) Electronic data in requested format 
+(d) Responses within time frames specified by examiner 
+TOPIC 10: MARKETING AND ADVERTISING STANDARDS 
+10.1 Truthful Advertising 
+All marketing materials must: 
+(a) Be accurate and not misleading 
+(b) Include required risk disclosures 
+(c) Not promise specific returns 
+(d) Comply with Topic 18 restrictions 
+10.2 Performance Advertising 
+When advertising performance: 
+(a) Must include appropriate benchmarks 
+(b) Time periods must be disclosed 
+(c) Net-of-fees returns required 
+(d) Past performance disclaimers mandatory 
+10.3 Testimonials and Endorsements 
+Use of client testimonials permitted only if: 
+(a) Compensation disclosed if paid 
+(b) Not cherry-picked or misleading 
+(c) Representative of client experiences 
+(d) Compliant with Topic 24 standards 
+TOPIC 11: CUSTODY AND SAFEKEEPING OF CLIENT ASSETS 
+11.1 Custody Requirements 
+Financial Institutions maintaining custody must: 
+(a) Use qualified custodian 
+(b) Provide quarterly account statements 
+(c) Undergo surprise audit annually 
+(d) Maintain fidelity bond per Topic 12.f 
+11.2 Prohibited Practices 
+Financial Institutions shall not: 
+(a) Commingle client and firm assets 
+(b) Borrow from client accounts 
+(c) Use client assets as collateral 
+(d) Engage in unauthorized trading 
+11.3 Account Statement Requirements 
+Client statements must include: 
+(a) All transactions during period 
+(b) Beginning and ending values 
+(c) Fees charged 
+(d) Performance metrics per Topic 5 
+TOPIC 12: INSURANCE AND BONDING REQUIREMENTS 
+12.1 Professional Liability Insurance 
+All Financial Institutions must maintain: 
+(a) Errors and Omissions (E&O) insurance 
+(b) Minimum coverage: $1 million per occurrence 
+(c) Aggregate coverage: $2 million annually 
+(d) Policy must cover all advisory activities 
+12.2 Cyber Liability Insurance 
+For institutions managing client data electronically: 
+(a) Minimum $500,000 cyber liability coverage 
+(b) Coverage for data breach notifications 
+(c) Coverage for regulatory penalties 
+12.3 Fidelity Bonds 
+(This section references Topic 12.f below) 
+12.4 Proof of Insurance 
+Insurance certificates must be filed: 
+(a) At initial registration 
+(b) Annually at renewal 
+(c) Within 15 days of policy changes 
+(d) Per format specified in Appendix C 
+12.5 Lapse of Coverage 
+Failure to maintain required insurance constitutes: 
+(a) Automatic suspension of registration 
+(b) Prohibition on accepting new clients 
+(c) Violation subject to penalties per Topic 25 
+12.f Fidelity Bond Requirements 
+Institutions with custody of client assets must maintain fidelity bonds covering: 
+(a) All employees with access to client assets 
+(b) Minimum $100,000 or 1% of AUM (whichever greater) 
+(c) Maximum $500,000 unless higher amount required 
+TOPIC 13: PERFORMANCE-BASED COMPENSATION 
+13.1 Qualified Client Standard 
+Performance-based fees permitted only for clients with: 
+(a) Net worth exceeding $2.5 million, OR 
+(b) AUM with advisor exceeding $1.5 million, OR 
+(c) Qualified Purchaser status 
+13.2 Fee Calculation Methods 
+Acceptable performance fee structures: 
+(a) Percentage of profits over high-water mark 
+(b) Fulcrum fees (symmetric around benchmark) 
+(c) Hurdle rate structures 
+13.3 Disclosure Requirements 
+Performance fee arrangements require: 
+(a) Written agreement signed by client 
+(b) Detailed fee calculation methodology 
+(c) Hypothetical fee scenarios 
+(d) Annual performance reports per Topic 5.2 
+TOPIC 14: CONFLICTS OF INTEREST MANAGEMENT 
+14.1 Identification 
+Financial Institutions must identify conflicts including: 
+(a) Personal trading 
+(b) Affiliated entities 
+(c) Referral arrangements 
+(d) Proprietary product recommendations 
+14.2 Disclosure 
+Material conflicts must be disclosed: 
+(a) In writing at account opening 
+(b) In Form ADV Part 2A 
+(c) Before the conflict arises 
+(d) Annually thereafter 
+14.3 Mitigation Procedures 
+For conflicts that cannot be eliminated: 
+(a) Implement information barriers 
+(b) Obtain client consent 
+(c) Employ independent oversight 
+(d) Document mitigation measures 
+TOPIC 15: COMPLIANCE EXEMPTIONS AND SAFE HARBORS 
+15.1 Small Advisor Exemption 
+Financial Institutions with AUM below $25 million may be exempt from: 
+(a) Topic 9.2 external audit requirement 
+(b) Topic 21 third-party verification 
+(c) Certain recordkeeping requirements per Topic 30 
+**IMPORTANT: Before Topic 15 exemption can be claimed, must complete audit per Topic 9** 
+15.2 Limited Advisory Services Exemption 
+Institutions providing only: 
+(a) General financial education 
+(b) Non-discretionary advice 
+(c) Fewer than 15 clients annually 
+May qualify for simplified compliance per Section 15.3 
+15.3 Exemption Application Process 
+To claim exemption: 
+(a) File Form EX-15 with jurisdictional authority 
+(b) Provide supporting documentation 
+(c) Receive written confirmation 
+(d) Renew exemption annually 
+15.4 Exemption Limitations 
+Exemptions under this Topic do not waive: 
+(a) Anti-fraud provisions 
+(b) Fiduciary duties per Topic 3 
+(c) AML requirements per Topic 6 
+(d) Client disclosure obligations 
+TOPIC 16: CYBERSECURITY AND DATA PROTECTION 
+16.1 Minimum Security Standards 
+Financial Institutions must implement: 
+(a) Multi-factor authentication 
+(b) Encryption of sensitive data 
+(c) Regular security assessments 
+(d) Incident response plan 
+16.2 Data Breach Notification 
+In event of data breach: 
+(a) Notify regulatory authority within 48 hours 
+(b) Notify affected clients within 72 hours 
+(c) Provide credit monitoring services 
+(d) File incident report per Topic 28 
+16.3 Third-Party Service Providers 
+When using external service providers: 
+(a) Conduct due diligence 
+(b) Maintain written contracts 
+(c) Monitor ongoing performance 
+(d) Ensure provider compliance with Topic 16.1 
+TOPIC 17: CROSS-BORDER SERVICES 
+17.1 Multi-Jurisdictional Registration 
+See Topic 2.3 for registration requirements across zones. 
+17.2 Currency and Exchange Controls 
+For clients with assets in multiple currencies: 
+(a) Disclosure of exchange rate risks 
+(b) Reporting in client's base currency 
+(c) Compliance with capital controls 
+(d) Enhanced monitoring for Zone-C transactions 
+17.3 Tax Reporting 
+Financial Institutions must: 
+(a) Comply with FATCA where applicable 
+(b) Report foreign account holdings per jurisdiction 
+(c) Withhold taxes as required 
+(d) Provide tax documentation to clients annually 
+TOPIC 18: RESTRICTIONS ON HIGH-RISK ACTIVITIES 
+18.1 Prohibited Investments 
+Financial Institutions shall not recommend: 
+(a) Unregistered securities without appropriate exemption 
+(b) Investments from sanctioned entities 
+(c) Ponzi or pyramid schemes 
+(d) Assets violating client's investment policy 
+[NOTE: Topic 18.2 content missing - numbering gap] 
+18.3 Leveraged and Derivative Strategies 
+Use of leverage or derivatives requires: 
+(a) Client sophistication assessment 
+(b) Written acknowledgment of risks 
+(c) Enhanced monitoring per Topic 5.2 
+(d) Compliance with Topic 18.2 restrictions 
+**SEE Topic 18.2 for additional leverage limitations** 
+18.4 Concentration Limits 
+Unless specifically approved by client: 
+(a) No single position exceeding 20% of portfolio 
+(b) No sector exceeding 30% of portfolio 
+(c) Maximum 10% allocation to illiquid investments 
+(d) Zone-C asset limits per regional guidelines 
+TOPIC 19: SANCTIONS AND PROHIBITED PERSONS 
+19.1 Sanctions Screening 
+Before accepting any client, screen against: 
+(a) OFAC Specially Designated Nationals (SDN) List 
+(b) UN Sanctions Lists 
+(c) Jurisdiction-specific sanctions 
+(d) Internal prohibited persons list 
+19.2 Ongoing Monitoring 
+Sanctions screening must be performed: 
+(a) At account opening 
+(b) Monthly thereafter 
+(c) Before executing any transaction 
+(d) Upon notification of sanctions updates 
+19.3 Blocked Assets 
+If client or assets become sanctioned: 
+(a) Immediately freeze account 
+(b) Notify regulatory authority within 24 hours 
+(c) Prohibit all transactions 
+(d) File required reports per Topic 6.2 
+TOPIC 20: TRANSACTION REPORTING AND RECORDKEEPING 
+20.1 Transaction Reports 
+For each transaction, maintain records of: 
+(a) Date and time 
+(b) Security identification 
+(c) Quantity and price 
+(d) Executing broker 
+(e) Client authorization 
+20.2 Communication Records 
+Retain all communications including: 
+(a) Emails related to advisory services 
+(b) Instant messages 
+(c) Text messages regarding client accounts 
+(d) Voice recordings if maintained 
+20.3 Retention Periods 
+Records must be retained for: 
+(a) Minimum 7 years for transaction records 
+(b) Minimum 5 years for correspondence 
+(c) Indefinitely for client agreements 
+(d) Per Topic 30 for specialized records 
+TOPIC 21: THIRD-PARTY VERIFICATION 
+21.1 Performance Verification 
+Performance claims must be verified by: 
+(a) Independent third-party verifier 
+(b) Annually at minimum 
+(c) Using recognized calculation methodology (GIPS compliant) 
+(d) Unless exempt per Topic 15.1 
+21.2 Compliance Certification 
+Annual compliance certification requires: 
+(a) Review by external compliance consultant 
+(b) Testing of key controls 
+(c) Written certification report 
+(d) Filing with regulatory authority 
+21.3 Qualified Verifiers 
+Third-party verifiers must: 
+(a) Be independent of the Financial Institution 
+(b) Have relevant professional credentials 
+(c) Maintain professional liability insurance 
+(d) Be approved by regulatory authority 
+TOPIC 22: STANDARDS OF PROFESSIONAL CONDUCT 
+22.1 Ethical Standards 
+Qualified Advisors must: 
+(a) Act with integrity and honesty 
+(b) Maintain professional competence per Topic 8 
+(c) Avoid conflicts of interest per Topic 14 
+(d) Exercise fiduciary duties per Topic 3 
+22.2 Prohibited Conduct 
+Violations include: 
+(a) Fraud or material misrepresentation 
+(b) Theft or misappropriation 
+(c) Insider trading 
+(d) Market manipulation 
+22.3 Disciplinary History Disclosure 
+Must disclose on Form ADV: 
+(a) Criminal convictions 
+(b) Regulatory sanctions 
+(c) Civil judgments related to advisory activities 
+(d) Customer complaints resulting in settlements over $15,000 
+TOPIC 23: BUSINESS CONTINUITY PLANNING 
+23.1 Written Plan Required 
+All Financial Institutions must maintain written business continuity plan addressing: 
+(a) Data backup and recovery 
+(b) Alternative work locations 
+(c) Communication procedures 
+(d) Critical vendor dependencies 
+23.2 Testing Requirements 
+Business continuity plans must be: 
+(a) Tested annually 
+(b) Updated based on test results 
+(c) Communicated to all employees 
+(d) Filed with regulatory authority upon request 
+23.3 Disaster Recovery 
+Recovery time objectives (RTO): 
+(a) Critical systems: 4 hours 
+(b) Client access to accounts: 24 hours 
+(c) Full operational capacity: 72 hours 
+TOPIC 24: ADVISORY AGREEMENTS 
+24.1 Required Contract Terms 
+All advisory agreements must include: 
+(a) Scope of services 
+(b) Fee structure and calculation method 
+(c) Termination provisions 
+(d) Assignment restrictions 
+(e) Dispute resolution procedures 
+24.2 Material Amendments 
+Changes to advisory agreements require: 
+(a) Written notice to client 
+(b) 30 days advance notice 
+(c) Client consent for material changes 
+(d) Updated Form ADV delivery 
+24.3 Termination 
+Either party may terminate: 
+(a) With or without cause 
+(b) Upon 30 days written notice 
+(c) Effective immediately for cause 
+(d) With pro-rata fee refund 
+TOPIC 25: ENFORCEMENT AND PENALTIES 
+25.1 Violations 
+Violations of this Framework may result in: 
+(a) Warning letters 
+(b) Monetary penalties up to $500,000 per violation 
+(c) Suspension of registration 
+(d) Permanent bar from industry 
+25.2 Penalty Guidelines 
+Factors considered in determining penalties: 
+(a) Severity of violation 
+(b) Harm to clients 
+(c) Whether violation was intentional 
+(d) Prior disciplinary history 
+(e) Cooperation with investigation 
+25.3 Appeals Process 
+Respondents may appeal: 
+(a) To Appeals Board within 30 days 
+(b) Must file written notice of appeal 
+(c) May request oral hearing 
+(d) Decision final after appeal exhausted 
+TOPIC 26: REPORTING TO REGULATORY AUTHORITIES 
+26.1 Quarterly Reports 
+Financial Institutions must file: 
+(a) Form ADV updates within 90 days of fiscal year end 
+(b) AUM reports 
+(c) Disciplinary events within 30 days 
+(d) Material business changes within 30 days 
+26.2 Annual Filings 
+Required annual submissions: 
+(a) Audited financial statements (if applicable) 
+(b) Compliance certification per Topic 21.2 
+(c) Insurance certificates per Topic 12 
+(d) Business continuity plan updates 
+26.3 Event Reporting 
+Immediate reporting required for: 
+(a) Data breaches per Topic 16.2 
+(b) Sanctions hits per Topic 19.3 
+(c) Criminal investigations 
+(d) Significant client complaints 
+TOPIC 27: GRANDFATHERING AND TRANSITION PROVISIONS 
+27.1 Existing Registrants 
+Financial Institutions registered prior to January 1, 2096: 
+(a) Have 180 days to achieve full compliance 
+(b) Must file transition plan within 60 days 
+(c) May request extension for good cause 
+(d) Subject to enhanced monitoring during transition 
+27.2 Legacy Client Accounts 
+Accounts established before effective date: 
+(a) May continue under prior fee arrangements for 12 months 
+(b) Must comply with disclosure requirements immediately 
+(c) Must transition to compliant agreements by December 31, 2096 
+27.3 Restricted Jurisdiction Exception 
+Benefit X is optional for Financial Institutions operating solely in non-participating 
+jurisdictions, unless Zone-C operations require compliance. 
+TOPIC 28: INCIDENT REPORTING 
+28.1 Reportable Incidents 
+Must report within specified timeframes: 
+(a) Cybersecurity incidents per Topic 16.2 
+(b) Suspected fraud or theft: immediately 
+(c) Operational failures affecting >100 clients: 24 hours 
+(d) Material compliance breaches: 48 hours 
+28.2 Report Format 
+All incident reports must include: 
+(a) Description of incident 
+(b) Date and time discovered 
+(c) Affected clients or assets 
+(d) Remedial actions taken 
+(e) Preventive measures implemented 
+28.3 Follow-up Reporting 
+For significant incidents: 
+(a) Preliminary report within initial timeframe 
+(b) Detailed report within 30 days 
+(c) Root cause analysis within 60 days 
+(d) Corrective action plan within 90 days 
+TOPIC 29: SUPERVISION AND OVERSIGHT 
+29.1 Supervisory Structure 
+Financial Institutions must establish: 
+(a) Clear reporting hierarchy 
+(b) Designated supervisors for each advisor 
+(c) Written supervisory procedures 
+(d) Regular supervision reviews 
+29.2 Supervisor Qualifications 
+Supervisors must: 
+(a) Be Qualified Advisors per Topic 8 
+(b) Have minimum 5 years industry experience 
+(c) Complete supervisor training 
+(d) Maintain clean disciplinary record 
+29.3 Supervisory Reviews 
+Must conduct: 
+(a) Real-time transaction monitoring 
+(b) Quarterly account reviews 
+(c) Annual performance evaluations 
+(d) Documentation of all reviews 
+TOPIC 30: ENHANCED DUE DILIGENCE FOR HIGH-RISK CLIENTS 
+30.1 Risk Assessment 
+Enhanced due diligence required for clients who: 
+(a) Are Politically Exposed Persons (PEPs) 
+(b) Have source of wealth from high-risk jurisdictions 
+(c) Engage in complex ownership structures 
+(d) Maintain substantial asset holdings in Zone-C 
+30.2 Documentation Requirements 
+For high-risk clients, maintain: 
+(a) Source of wealth verification 
+(b) Ongoing transaction monitoring 
+(c) Annual re-verification of identity 
+(d) Enhanced recordkeeping per Topic 20.3 
+30.3 Approval Requirements 
+Acceptance of high-risk clients requires: 
+(a) Senior management approval 
+(b) Documented risk assessment 
+(c) Enhanced monitoring plan 
+(d) Compliance officer sign-off 
+TOPIC 31: BENEFICIAL OWNERSHIP TRANSPARENCY 
+31.1 Disclosure Requirements 
+Financial Institutions must identify and verify: 
+(a) All natural persons with 25% or greater ownership 
+(b) Persons exercising control regardless of ownership percentage 
+(c) Ultimate beneficial owners through all entity layers 
+(d) Changes in beneficial ownership within 30 days 
+31.2 Documentation Standards 
+For each beneficial owner, obtain: 
+(a) Full legal name 
+(b) Date of birth 
+(c) Residential address 
+(d) Government identification number 
+(e) Ownership percentage 
+31.3 Corporate Clients 
+For corporate clients: 
+(a) Obtain certified ownership structure chart 
+(b) Identify beneficial owners per 31.1 
+(c) Verify through independent sources 
+(d) Update annually or upon material change 
+31.4 Legal Entity Ownership Disclosure 
+When beneficial owners are legal entities (not natural persons): 
+(a) Must continue disclosure through all entity layers 
+(b) Document corporate structure at each level 
+(c) Identify natural persons at ultimate beneficial owner level 
+(d) Certification from client required 
+**EXAMPLE DEFICIENCY: Topic 31 of GFSAF requires investment advisers to disclose all 
+beneficial owners with 25% or greater ownership interest. Your Form ADV Part 1A, 
+Schedule A listed XYZ Holdings LLC as a 25% owner but didn't identify the natural 
+persons with ownership/control of XYZ Holdings. Per Topic 31.4, ownership disclosure 
+must continue through all entity layers until natural persons are identified. To cure this deficiency, file an amended Form ADV within 30 days listing the ultimate beneficial owners of XYZ Holdings LLC with supporting documentation.** 
+TOPIC 32: COMPLAINT HANDLING AND DISPUTE RESOLUTION 
+32.1 Complaint Procedures 
+Financial Institutions must: 
+(a) Maintain written complaint procedures 
+(b) Acknowledge complaints within 5 business days 
+(c) Provide substantive response within 30 days 
+(d) Maintain complaint log 
+32.2 Mandatory Arbitration 
+Advisory agreements may include arbitration clauses, provided: 
+(a) Clause is conspicuous 
+(b) Client initials arbitration provision 
+(c) Choice of arbitration forum disclosed 
+(d) Arbitration procedures explained 
+32.3 Regulatory Reporting 
+Must report to regulatory authority: 
+(a) Complaints alleging fraud 
+(b) Complaints seeking damages >$50,000 
+(c) Complaints resulting in settlements >$15,000 
+(d) Patterns of similar complaints 
+APPENDIX A: FORMS AND SCHEDULES 
+Schedule A: Registration Fees 
+- Initial Registration: $5,000 
+- Annual Renewal: $2,500 
+- Amendment Filing: $500 
+- Late Filing Penalty: $1,000 
+Schedule B: Examination Cycle 
+- AUM >$1 billion: Annual examination 
+- AUM $100M - $1B: Bi-annual examination 
+- AUM <$100M: Tri-annual examination 
+- Zone-C operations: Enhanced examination frequency 
+APPENDIX B: DEFINED TERMS 
+"Assets Under Management (AUM)": Total market value of client assets over which Financial Institution exercises discretionary investment authority. 
+"Beneficial Owner": Any natural person who directly or indirectly owns or controls 25% 
+or more of equity interests, or exercises control over the entity. 
+"High-Risk Investment": Securities with volatility exceeding 25% annually, leverage ratios above 2:1, or illiquidity periods exceeding 90 days. 
+"Material Conflict": Any conflict reasonably expected to influence advisor's judgment to 
+detriment of client. 
+"Qualified Client": Client meeting criteria in Topic 13.1 for performance-based fee 
+eligibility. 
+"Zone-C": [UNDEFINED - Referenced throughout document but never explicitly defined] 
+"Zone-C Advisors": Financial advisors maintaining substantial operations in Zone-C. 
+(Zone-C itself not defined) 
+APPENDIX C: INSURANCE CERTIFICATE FORMAT 
+[Template details omitted for brevity] 
+REGULATORY NOTES: 
+1. Effective Date: January 1, 2096, except where specifically noted. 
+2. Amendments: This Framework may be amended by IFOC upon 90 days notice to all 
+registrants. 
+3. Supremacy: In event of conflict between this Framework and local law, the more 
+stringent requirement applies. 
+4. Circular Reference Note: 
+- Topic 15 (exemptions) requires completion of audit per Topic 9 
+- Topic 9 states audit not required if Topic 15 exemption applies 
+- Resolution: Topic 15 exemption must be evaluated independently first 
+5. Missing Topics: Topics 18.2 is referenced but content not included in this version. Registrants should request clarification from IFOC. 
+6. Zone-C Definition: "Zone-C" is referenced 15 times throughout this Framework but is 
+not defined. Registrants should contact IFOC for geographic clarification. 
+END OF DOCUMENT 
+Version 3.2 
+Issued: December 15, 2095 
+Effective: January 1, 2096 
+International Financial Oversight Commission (IFOC) 
