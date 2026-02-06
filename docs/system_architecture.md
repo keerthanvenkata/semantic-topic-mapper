@@ -161,6 +161,7 @@ All extracted knowledge must be traceable back to:
 
 ## Out of Scope (For Now)
 
+- PDF / DOCX filetype input
 - PDF layout parsing
 - Legal reasoning or interpretation
 - Summarization or Q&A interfaces

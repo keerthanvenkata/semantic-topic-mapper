@@ -13,7 +13,7 @@ Your `src/semantic_topic_mapper/` layout aligns well with the architecture and a
 |--------|------------|
 | **Separation of concerns** | Ingestion → structure → references → entities → graph → audit → outputs is clear and matches the pipeline. |
 | **Deterministic vs LLM** | Good: `reference_detector.py` (deterministic) vs `llm_reference_enricher.py`; same pattern in entities. |
-| **Data models** | `topic_block.py`, `reference_models.py`, `entity_models.py` give explicit types; keep schemas close to their domains. |
+| **Data models** | Shared `models/` package: `topic_models.py`, `reference_models.py`, `entity_models.py`, `ambiguity_models.py` — system-wide vocabulary, reduces circular imports. |
 | **Graph** | Having `topic_graph.py`, `reference_graph.py`, `entity_graph.py` under `graph/` is fine; clarify whether these are in-memory models or builders that write to a unified store used by exporters. |
 | **Audit** | `gap_analyzer.py`, `unresolved_detector.py`, `risk_scorer.py` map well to “missing numbers”, “broken refs/undefined entities”, “confidence”. |
 
@@ -260,7 +260,7 @@ For implementation order and testing:
 
 1. **Create** `.env.example` and add `.env` to `.gitignore` (if not already).
 2. **Add** `config.py` (or `config/`) with env loading and typed settings; no logic, only configuration.
-3. **Implement** ingestion and structure (loader → normalizer → segmenter → topic_id_parser → topic_block + header_detector) and validate on `sample_document.txt`.
+3. **Implement** ingestion and structure (loader → normalizer → segmenter → topic_id_parser → topic_models + header_detector) and validate on `sample_document.txt`.
 4. **Add** hierarchy builder and orphan detector; then reference detection and entity detection (deterministic only) so you can export a first `topic_map.json` and `ambiguity_report.csv` without LLM.
 5. **Introduce** LLM layer and enrichers when the deterministic backbone is stable.
 

@@ -34,6 +34,7 @@ It is NOT a chatbot, RAG system, or agent framework.
 ```text
 
 src/semantic_topic_mapper/
+models/    # shared data models (topic, reference, entity, ambiguity)
 ingestion/ # text loading and normalization
 structure/ # topic blocks and hierarchy
 references/ # cross-reference detection
