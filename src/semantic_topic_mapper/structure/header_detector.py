@@ -10,6 +10,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from semantic_topic_mapper.models.topic_models import TopicID
 from semantic_topic_mapper.structure.topic_id_parser import parse_topic_id
 
 
@@ -37,8 +38,11 @@ def detect_headers(text: str) -> list[HeaderCandidate]:
 
     Supported patterns:
     - A: "TOPIC X: TITLE" (case-insensitive TOPIC, valid ID, then : and optional title)
-    - B: "2.1 Initial Registration" (line starts with valid topic ID, then whitespace and title)
-    - C: "3.5.2" (line is only a valid topic ID, no title)
+    - B: "2.1 Initial Registration" (line starts with valid topic ID, then whitespace and title).
+      Title must not end with a period (avoids numbered sentences like "2 Firms must comply immediately.").
+      No word-count limit, so long legal headers are accepted.
+    - C: "3.5.2" (line is only a valid topic ID, no title). Single-number IDs > 50 (e.g. years
+      like "2023") are rejected to avoid false positives from standalone years or page numbers.
 
     Does not detect: subclauses (a)/(b), bullet points, in-line mentions like "Topic 12",
     or lines where numbers are not at the start.
@@ -68,7 +72,7 @@ def detect_headers(text: str) -> list[HeaderCandidate]:
         # Pattern C: standalone topic ID (no title on same line)
         if " " not in stripped:
             tid = parse_topic_id(stripped)
-            if tid is not None:
+            if tid is not None and _accept_standalone_id(tid):
                 results.append(
                     HeaderCandidate(
                         topic_id_raw=tid.raw,
@@ -84,7 +88,7 @@ def detect_headers(text: str) -> list[HeaderCandidate]:
         if len(parts) >= 2:
             id_candidate, title_part = parts[0], parts[1]
             tid = parse_topic_id(id_candidate)
-            if tid is not None:
+            if tid is not None and _title_looks_like_header(title_part):
                 results.append(
                     HeaderCandidate(
                         topic_id_raw=tid.raw,
@@ -95,6 +99,33 @@ def detect_headers(text: str) -> list[HeaderCandidate]:
                 )
 
     return results
+
+
+def _title_looks_like_header(title_part: str) -> bool:
+    """
+    Conservative heuristic: reject titles that look like full sentences.
+    Only check: title must not end with a period (numbered sentences do).
+    No word-count limit, so long legal headers are accepted.
+    """
+    t = title_part.strip()
+    if not t:
+        return False
+    if t.endswith("."):
+        return False
+    return True
+
+
+def _accept_standalone_id(tid: TopicID) -> bool:
+    """
+    Reject standalone IDs that are likely years or page numbers (e.g. 2023, 2096).
+    Single-segment IDs with value > 50 are not treated as topic headers.
+    """
+    if tid.level != 1:
+        return True
+    part = tid.parts[0]
+    if not part.isdigit():
+        return True
+    return int(part) <= 50
 
 
 def _try_pattern_a(stripped: str, start_char: int, raw_line: str) -> HeaderCandidate | None:
