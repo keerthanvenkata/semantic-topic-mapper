@@ -165,3 +165,19 @@ All extracted knowledge must be traceable back to:
 - Legal reasoning or interpretation
 - Summarization or Q&A interfaces
 - UI or visualization dashboards
+
+---
+
+## Future Enhancements
+
+### LLM-Assisted Ambiguity Confidence Scoring
+
+Future versions of the system may incorporate LLM-based evaluation to estimate confidence levels for structural or semantic ambiguities.
+
+Potential applications include:
+- Scoring topic boundary uncertainty
+- Assessing whether bullet lists imply substructure
+- Ranking the severity of unresolved references
+- Providing natural language explanations for ambiguous regions
+
+These signals would remain advisory and would not alter the deterministic structural backbone. All LLM-derived confidence scores would be stored as metadata and surfaced in reports rather than used for automatic structural corrections.
