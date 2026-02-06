@@ -31,6 +31,7 @@ This document defines the operational assumptions under which the Semantic Topic
 - Non-numbered headings may exist but are treated as secondary signals.
 - Bullet points are treated as content within a topic, not automatically as subtopics.
 - The system may create **synthetic placeholder topics** when structural gaps are detected (e.g., Topic 18.2 missing).
+- **Header detection** is conservative: lines are accepted only when they match known patterns (e.g. “TOPIC X: TITLE”, “2.1 Title”) and pass simple heuristics (e.g. title does not end with a period; standalone single numbers > 50 are rejected to avoid years). Numbered sentences and in-line mentions like “Topic 12” are not treated as headers.
 
 ---
 

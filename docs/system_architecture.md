@@ -19,6 +19,7 @@ This is **not** a chatbot, summarizer, or RAG system. It is a **document structu
 
 - Input is **normalized plain text** (e.g. UTF-8 `.txt`). PDFs are converted to text *before* entering the system.
 - Layout artifacts (line breaks, headers, footers) may exist and are handled in preprocessing.
+- Topic headers are detected deterministically using pattern matching and conservative heuristics (e.g. title must not end with a period; standalone numbers > 50 rejected) so numbered sentences and years are not misclassified.
 - Documents may contain inconsistent numbering, missing sections, implicit references, and undefined entities.
 - The system **detects and reports** such issues rather than silently fixing them.
 

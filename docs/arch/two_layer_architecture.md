@@ -36,7 +36,7 @@ The LLM never creates, deletes, or reorganizes the topic hierarchy. All structur
 
 | Responsibility | Deterministic Backbone | LLM Layer |
 |----------------|------------------------|-----------|
-| **Topic boundary detection** | Yes. Identifies where topics start and end using header patterns and topic ID grammar. | No. May flag *candidate* boundary ambiguities (e.g. “this sentence could belong to 5.1 or 5.2”) as annotations; does not move or redefine boundaries. |
+| **Topic boundary detection** | Yes. Identifies where topics start and end using header patterns and topic ID grammar. Conservative heuristics (e.g. title must not end with a period; standalone ID > 50 rejected) avoid misclassifying numbered sentences and years as headers. | No. May flag *candidate* boundary ambiguities (e.g. “this sentence could belong to 5.1 or 5.2”) as annotations; does not move or redefine boundaries. |
 | **Topic ID hierarchy** | Yes. Parses topic IDs (e.g. 5, 5.1, 5.1.a), infers parent-child relationships, creates placeholders for gaps. | No. Does not assign, change, or infer topic IDs or hierarchy. |
 | **Cross-reference detection** | Yes. Detects explicit references (“See Topic 8”, “per Topic 12”, “Topics 5–9”) and records targets and spans. | No for structure. Enriches with interpretation of *implicit* references (e.g. “as described above” → suggested topic ID); output is annotation only. |
 | **Implicit reference interpretation** | No. Only explicit reference strings and patterns. | Yes. Interprets phrases like “as described above”, “the foregoing”, “that section” and produces structured suggestions (topic ID, confidence) tied to spans. |

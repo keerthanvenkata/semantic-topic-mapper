@@ -87,9 +87,23 @@ The parser (`structure/topic_id_parser.py`) is pure, deterministic, and strict.
 
 ---
 
-## 5. What Topic Modeling Does NOT Do
+## 5. Header Detection (Deterministic)
 
-This layer does **not**:
+Header detection (`structure/header_detector.py`) identifies lines that start new topics and returns `HeaderCandidate` objects. It does **not** build hierarchy or TopicBlocks.
+
+**Patterns:**
+
+- **A:** `TOPIC X: TITLE` — case-insensitive `TOPIC`, valid ID (via parser), then `:` and optional title.
+- **B:** `2.1 Initial Registration` — line starts with valid topic ID, then whitespace and title. A **title-shape heuristic** avoids false positives: titles that end with a period (e.g. “2 Firms must comply immediately.”) are rejected. No word-count limit, so long legal headers are accepted.
+- **C:** `3.5.2` — line is only a valid topic ID. **Standalone-ID safeguard:** single-segment IDs with value > 50 (e.g. `2023`, `2096`) are rejected to avoid treating standalone years or page numbers as topic headers.
+
+These filters keep detection conservative and deterministic; no NLP or LLMs are used.
+
+---
+
+## 6. What Topic Modeling Does NOT Do
+
+The topic-modeling layer (parser + header detection) does **not**:
 
 - Detect whether a line is a header
 - Build parent–child relationships
@@ -104,6 +118,8 @@ It only provides:
 **Next step:** The module `hierarchy_builder.py` will compare TopicID levels, determine parent–child links, insert synthetic nodes, and detect gaps. That logic depends on these models being stable first.
 
 **List markers:** (a), (b), (i), etc. may be stored as **Subclauses** inside TopicBlock (local structure). In v1 they do **not** form TopicNodes or topic IDs like `2.2.a`; the topic graph has no nodes for subclauses. Future enhancements may add optional LLM-based subclause promotion (see system architecture).
+
+**Header heuristics:** Header detection uses conservative, deterministic filters (title must not end with a period; no word-count limit; standalone single numbers > 50 rejected) so that numbered sentences and standalone years are not misclassified as topic headers.
 
 ---
 
