@@ -99,6 +99,43 @@ Header detection (`structure/header_detector.py`) identifies lines that start ne
 
 These filters keep detection conservative and deterministic; no NLP or LLMs are used.
 
+### 5b. Handling Missed Topic Boundaries (False Negatives)
+
+The deterministic header detector is intentionally conservative. As a result, some **true topic boundaries may be missed** if they do not match supported header patterns. In such cases, text belonging to multiple logical topics may be merged into a single TopicBlock.
+
+This is an **accepted tradeoff in v1**.
+
+**Why this tradeoff is acceptable**
+
+- **False positives** (incorrectly splitting a topic) are more damaging than false negatives. An incorrect split corrupts the topic hierarchy and propagates structural errors through references, entity mapping, and exports.
+- A **false negative** (missed header) preserves structural consistency while potentially reducing granularity.
+
+**How the system mitigates this**
+
+Even when multiple logical topics are merged into one block:
+
+- Cross-references within the merged text are still detected and linked correctly at the topic level.
+- Entity mentions are still extracted and associated with the containing topic.
+- The ambiguity detection layer may flag unusually long or semantically heterogeneous blocks as potential boundary issues.
+
+**Future enhancements**
+
+Future versions may incorporate **LLM-assisted semantic boundary analysis** to:
+
+- Detect potential topic shifts within large blocks
+- Suggest probable missing headers
+- Assign confidence scores to suspected boundary ambiguities
+
+These signals would be **advisory** and surfaced in the ambiguity report, without automatically altering the deterministic structure.
+
+| Situation        | v1 behavior                                      |
+|------------------|---------------------------------------------------|
+| Header missed    | Text merges into previous TopicBlock              |
+| Does structure break? | No                                             |
+| Do we lose all signal? | No — refs/entities still extracted            |
+| Is it flagged?   | Possibly via ambiguity rules (long/heterogeneous blocks) |
+| Future fix path? | LLM semantic boundary detection (advisory)       |
+
 ---
 
 ## 6. What Topic Modeling Does NOT Do

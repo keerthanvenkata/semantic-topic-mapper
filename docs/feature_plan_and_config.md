@@ -51,8 +51,8 @@ For each **system capability**, the table below states: **inputs needed**, **out
 |----------------|--------|----------|--------------|
 | **Topic ID grammar** | — | Parser that recognizes e.g. `5`, `5.1`, `5.1.a`, `TOPIC 18` | Optional: `TOPIC_ID_PATTERNS` or grammar file path |
 | **TopicBlock model** | — | Data class: topic_id, title, body, start/end span, parent_id (optional) | — |
-| **Header detection** | Normalized text; topic ID parser | List of header candidates (topic_id_raw, title, start_char, line_text). Uses patterns A/B/C and conservative heuristics: Pattern B title must not end with period (avoids numbered sentences); no word-count limit (long legal headers accepted). Pattern C rejects standalone single-number IDs > 50 (e.g. years). | — |
-| **Topic blocks** | Header candidates + full text | List of TopicBlocks with boundaries and spans | — |
+| **Header detection** | Normalized text; topic ID parser | List of header candidates (topic_id_raw, title, start_char, line_text). Uses patterns A/B/C and conservative heuristics: Pattern B title must not end with period (avoids numbered sentences); no word-count limit (long legal headers accepted). Pattern C rejects standalone single-number IDs > 50 (e.g. years). **Missed headers** (false negatives) are an accepted v1 tradeoff: text may merge into one TopicBlock; refs/entities still extracted; see [Handling Missed Topic Boundaries](arch/topic_modeling.md#5b-handling-missed-topic-boundaries-false-negatives). | — |
+| **Topic blocks** | Header candidates + full text | List of TopicBlocks with boundaries and spans. When a header is missed, content merges into the previous block. | — |
 | **Orphan detection** | Topic blocks + full text | List of orphan regions (span, snippet) | `ORPHAN_MIN_LENGTH` (ignore tiny fragments) |
 
 **Deliverable (internal):** List of `TopicBlock`; list of orphan spans. Consumed by hierarchy and audit.

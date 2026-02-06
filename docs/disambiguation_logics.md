@@ -50,14 +50,15 @@ Any uncertainty or ambiguity detected by either layer is **surfaced in the ambig
 
 ## Structural and Boundary Ambiguity
 
-**Problem:** Topic numbering gaps (e.g. 18.2 missing), orphan text, or sentences that could belong to more than one topic.
+**Problem:** Topic numbering gaps (e.g. 18.2 missing), orphan text, sentences that could belong to more than one topic, and **missed topic boundaries** (false negatives from conservative header detection).
 
 **Logic:**
 
-1. **Deterministic:** Detect missing topic IDs, orphan spans, and references to non-existent topics. Create placeholder nodes only when configured; do not infer content. All findings go into the ambiguity report.
-2. **LLM (optional):** Flag boundary ambiguities (e.g. “this sentence could belong to 5.1 or 5.2”) as annotations tied to spans. These do not move or redefine topic boundaries; they inform the report.
-3. **Audit:** Missing topics, broken references, orphan content, and LLM-flagged boundary ambiguities are listed with resolution strategies (e.g. “Registrants should request clarification from IFOC” for missing 18.2).
-4. **No silent resolution:** Structure is not reorganized to “fix” gaps or boundaries; the backbone’s structure is the source of truth, and ambiguities are documented.
+1. **Deterministic:** Detect missing topic IDs, orphan spans, and references to non-existent topics. Create placeholder nodes only when configured; do not infer content. All findings go into the ambiguity report. When a header is missed, text merges into the previous TopicBlock; refs and entities are still extracted at the topic level.
+2. **Ambiguity layer:** Unusually **long or semantically heterogeneous blocks** may be flagged as potential boundary issues (e.g. possible missed header). This does not change structure; it surfaces a candidate for review.
+3. **LLM (optional):** Flag boundary ambiguities (e.g. “this sentence could belong to 5.1 or 5.2”) as annotations tied to spans. These do not move or redefine topic boundaries; they inform the report.
+4. **Audit:** Missing topics, broken references, orphan content, suspected merged-boundary blocks, and LLM-flagged boundary ambiguities are listed with resolution strategies (e.g. “Registrants should request clarification from IFOC” for missing 18.2).
+5. **No silent resolution:** Structure is not reorganized to “fix” gaps or boundaries; the backbone’s structure is the source of truth, and ambiguities are documented.
 
 ---
 
