@@ -114,9 +114,11 @@ For each **system capability**, the table below states: **inputs needed**, **out
 
 ### 2.7 LLM Semantic Enrichment
 
+**LLM stack:** We use **Google Gemini**, specifically the **gemini-3-flash** model, via the **google-generativeai** Python SDK. The client in `llm/client.py` should call this SDK; config uses `LLM_API_KEY` (Google AI API key) and `LLM_MODEL` (default `gemini-3-flash`).
+
 | Responsibility | Needs | Delivers | Config / Env |
 |----------------|--------|----------|--------------|
-| **LLM client** | API key, base URL, model | Wrapper: call with prompt + schema; return parsed JSON | `LLM_API_KEY`, `LLM_BASE_URL`, `LLM_MODEL`, `LLM_TIMEOUT` |
+| **LLM client** | API key, model | Wrapper: call with prompt + schema; return parsed JSON (uses google-generativeai) | `LLM_API_KEY`, `LLM_MODEL`, `LLM_TIMEOUT` |
 | **Schemas** | — | JSON schemas for: topic semantics, reference semantics, entity semantics | — |
 | **Validator** | LLM response + schema | Validated dict or Pydantic model; errors logged, not merged | — |
 | **Prompts** | Template files | Loaded prompt templates (topic_semantics, reference_semantics, entity_semantics) | `PROMPTS_DIR` or default next to `prompts/` |
@@ -170,12 +172,12 @@ All exporters need: **output directory** and optional **file names**. No secrets
 | Secrets | `.env` only | `LLM_API_KEY` |
 | Paths (user-specific) | `.env` preferred | `INPUT_PATH`, `OUTPUT_DIR` |
 | Feature flags / behavior | `config.py` (default) + optional override in `.env` | `CREATE_PLACEHOLDER_FOR_MISSING`, `NORMALIZE_UNICODE` |
-| LLM endpoint/model | `.env` | `LLM_BASE_URL`, `LLM_MODEL` |
+| LLM model / API key | `.env` | `LLM_API_KEY`, `LLM_MODEL` (Gemini) |
 | Defaults that are same for everyone | `config.py` | Default encoding `utf-8`, default timeout 60s |
 
 ### 3.3 `.env` (and `.env.example`)
 
-Variables to define:
+Variables to define (LLM uses **Gemini** via **google-generativeai**; model **gemini-3-flash**):
 
 ```bash
 # ---- Input ----
@@ -185,10 +187,9 @@ INPUT_ENCODING=utf-8
 # ---- Output ----
 OUTPUT_DIR=output
 
-# ---- LLM (optional; leave blank to skip LLM enrichment) ----
+# ---- LLM: Gemini (google-generativeai SDK); leave LLM_API_KEY blank to skip enrichment ----
 LLM_API_KEY=
-LLM_BASE_URL=https://api.openai.com/v1
-LLM_MODEL=gpt-4o-mini
+LLM_MODEL=gemini-3-flash
 LLM_TIMEOUT=60
 ```
 
@@ -203,7 +204,7 @@ LLM_TIMEOUT=60
   - **Ingestion:** `input_path`, `input_encoding`, `normalize_unicode`, `header_footer_patterns`, `page_number_pattern`, `whitespace_normalization`
   - **Structure:** `topic_id_patterns` (optional path or built-in), `orphan_min_length`, `create_placeholder_for_missing`
   - **References:** optional `reference_patterns` path
-  - **LLM:** `llm_api_key`, `llm_base_url`, `llm_model`, `llm_timeout`, `prompts_dir`; `skip_llm` if no API key
+  - **LLM:** `llm_api_key`, `llm_model`, `llm_timeout`, `prompts_dir`; `skip_llm` if no API key (Gemini via google-generativeai)
   - **Output:** `output_dir`, `topic_map_filename`, etc.
 
 - Use **defaults** for everything that can be defaulted; override from env only where needed (paths, API key, model).
@@ -228,13 +229,13 @@ Optional: if config grows large, split into `config/__init__.py` (re-exports), `
 
 - **`.env.example`** — Committed template; copy to `.env` and set values.
 - **`.gitignore`** — Includes `.env` so secrets are never committed.
-- **`src/semantic_topic_mapper/config.py`** — Loads `.env` via `python-dotenv` if installed; exposes `INPUT_PATH`, `OUTPUT_DIR`, `skip_llm()`, and other settings. Use:
+- **`src/semantic_topic_mapper/config.py`** — Loads `.env` via `python-dotenv` if installed; exposes `INPUT_PATH`, `OUTPUT_DIR`, `skip_llm()`, and other settings. LLM defaults: **Gemini** (model **gemini-3-flash**); the LLM client is implemented with the **google-generativeai** SDK. Use:
 
   ```python
   from semantic_topic_mapper.config import INPUT_PATH, OUTPUT_DIR, skip_llm
   ```
 
-  Add `python-dotenv` to `requirements.txt` when you add one; config works without it (env vars only).
+  Dependencies: see root `requirements.txt` (includes `google-generativeai`, `python-dotenv`).
 
 ---
 
