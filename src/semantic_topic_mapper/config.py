@@ -69,11 +69,10 @@ ORPHAN_MIN_LENGTH: int = _env_int("ORPHAN_MIN_LENGTH", 20)
 CREATE_PLACEHOLDER_FOR_MISSING: bool = _env_bool("CREATE_PLACEHOLDER_FOR_MISSING", True)
 
 # ---------------------------------------------------------------------------
-# LLM
+# LLM — Google Gemini (gemini-3-flash) via google-generativeai SDK
 # ---------------------------------------------------------------------------
 LLM_API_KEY: Optional[str] = _env("LLM_API_KEY")
-LLM_BASE_URL: str = _env("LLM_BASE_URL") or "https://api.openai.com/v1"
-LLM_MODEL: str = _env("LLM_MODEL") or "gpt-4o-mini"
+LLM_MODEL: str = _env("LLM_MODEL") or "gemini-3-flash"
 LLM_TIMEOUT: int = _env_int("LLM_TIMEOUT", 60)
 PROMPTS_DIR: Optional[Path] = _env_path("PROMPTS_DIR")
 
