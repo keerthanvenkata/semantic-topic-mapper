@@ -105,3 +105,7 @@ Potential applications:
 - Providing natural language explanations for ambiguous regions
 
 These signals would remain **advisory** and would not alter the deterministic structural backbone. All LLM-derived confidence scores would be stored as metadata and surfaced in reports rather than used for automatic structural corrections.
+
+### Subclause promotion (v1: out of scope)
+
+In v1, subclauses (a), (b), (c) never become TopicNodes; they remain local structure inside TopicBlock. Future versions could introduce optional, LLM-based analysis to suggest when a subclause might be promoted to a structural element (e.g. as a synthetic topic or as a first-class navigation target). Any such feature would remain advisory and configurable; the default would stay deterministic (no promotion).

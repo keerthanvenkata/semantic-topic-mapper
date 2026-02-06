@@ -5,4 +5,5 @@ Detailed architecture documents linked from [System Architecture](../system_arch
 | Document | Contents |
 |---------|----------|
 | [Two-Layer Architecture](two_layer_architecture.md) | Deterministic backbone vs LLM layer, principles, responsibility table, compiler analogy |
-| [Topic Modeling Foundations](topic_modeling.md) | TopicID, TopicBlock, TopicNode, topic ID grammar, list markers |
+| [Topic Modeling Foundations](topic_modeling.md) | TopicID, TopicBlock, TopicNode, Subclause, topic ID grammar, list markers |
+| [References and Subclauses](references_and_subclauses.md) | Subclauses ≠ topics; TopicReference; graph edges connect TopicNodes only |

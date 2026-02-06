@@ -1,68 +1,109 @@
 # Topic Modeling Foundations
 
-The system represents document structure using three core models. These live in the shared `models/` package (`topic_models.py`) and are produced by the deterministic backbone.
+The system represents document structure using core models in the shared `models/` package (`topic_models.py`), produced by the deterministic backbone.
+
+**Architectural rule (v1):** Subclauses like (a), (b), (c) are **NOT** separate topics and do **not** become TopicNodes; they are local structural elements inside a TopicBlock. Graph edges always connect TopicNodes only. See [References and Subclauses](references_and_subclauses.md) for Subclause and TopicReference design. Future enhancements may add optional, LLM-based subclause promotion (see [System Architecture](../system_architecture.md#future-enhancements)).
 
 ---
 
-## Core Models
+## 1. TopicID Model
 
-### TopicID
+Structured identity of a topic.
 
-A structured representation of a topic identifier (e.g. `2.1.a`). Topic IDs are parsed into hierarchical parts and used to determine structural relationships between topics.
+| Field   | Type            | Description                          |
+|---------|-----------------|--------------------------------------|
+| `raw`   | `str`           | Original string form (e.g. `"2.1.a"`) |
+| `parts` | `tuple[str, ...]` | Parsed hierarchical parts (e.g. `("2", "1", "a")`) |
+| `level` | `int`           | Depth; equals `len(parts)`           |
 
-- Parsed by the deterministic **topic ID grammar** (see below).
-- Used to infer parent–child relationships (e.g. `2.1` is parent of `2.1.a`).
-- No semantic meaning is attached at parse time; hierarchy is purely structural.
-
-### TopicBlock
-
-A container for the raw text associated with a topic. It stores:
-
-- The topic identifier (if present)
-- Title (if available)
-- Character span within the source document
-
-**TopicBlocks do not encode hierarchy.** They are flat “blocks” of text with an optional ID and span. Hierarchy is built separately via TopicNodes.
-
-### TopicNode
-
-A node in the topic hierarchy graph. TopicNodes:
-
-- Reference TopicBlocks (one node may wrap one block’s content)
-- Define parent–child relationships between topics
-- May be **synthetic**: created when structural gaps are detected (e.g. missing intermediate topic numbers such as 18.2)
-
-The graph of TopicNodes is the structural backbone’s representation of the document outline. Placeholder/synthetic nodes are marked as such and reported in the ambiguity report.
+**Planned behavior (methods, not yet implemented):** `parent()` → immediate parent ID candidate; `ancestors()` → list of higher-level IDs; `is_parent_of(other)`; `same_branch_as(other)`. For now, only the structure is stored.
 
 ---
 
-## Topic ID Grammar
+## 2. TopicBlock Model
 
-Topic identifiers follow a strict grammar:
+Chunk of document text associated with a topic.
+
+| Field        | Type           | Description |
+|-------------|----------------|--------------|
+| `topic_id`  | `TopicID \| None` | Topic identifier, or `None` for orphan content |
+| `title`     | `str \| None`  | Title if available |
+| `raw_text`  | `str`          | Raw text kept intact for LLM grounding, reference span tracking, exports |
+| `start_char`| `int`          | Start character offset in source document |
+| `end_char`  | `int`          | End character offset in source document |
+| `subclauses`| `list[Subclause]` | Local elements (a), (b), (c) inside this block; in v1 **remain inside TopicBlock**, do not become TopicNodes |
+
+**Design choices:** `topic_id=None` allows orphan content. No hierarchy info here; hierarchy is in TopicNode. Subclauses are stored only here; they do not appear in the topic graph.
+
+### 2b. Subclause Model (inside TopicBlock)
+
+| Field        | Type | Description |
+|-------------|------|--------------|
+| `label`     | `str` | e.g. `"a"`, `"b"` |
+| `text`      | `str` | Subclause text |
+| `start_char`| `int` | Start offset in source document |
+| `end_char`  | `int` | End offset in source document |
+
+Subclauses are **not** topics and must **not** become TopicNodes.
+
+---
+
+## 3. TopicNode Model
+
+Node in the topic hierarchy graph.
+
+| Field          | Type               | Description |
+|----------------|--------------------|-------------|
+| `topic_id`    | `TopicID`          | This node’s topic identifier |
+| `parent_id`   | `TopicID \| None`  | Immediate parent (e.g. root has `None`) |
+| `children_ids`| `list[TopicID]`    | Immediate children |
+| `block`       | `TopicBlock \| None` | Associated text block; `None` for synthetic nodes |
+| `synthetic`   | `bool`             | `True` when node was created for a missing topic number (gap placeholder) |
+
+**Why `synthetic`:** For gaps (e.g. 18.1 and 18.3 exist, 18.2 missing), we create a placeholder node for 18.2 with `synthetic=True` and `block=None`. Structural correctness is maintained without pretending content exists.
+
+---
+
+## 4. Topic ID Parser Design
+
+The parser (`structure/topic_id_parser.py`) is pure, deterministic, and strict.
+
+**Accepted grammar (v1):** Letter allowed only once, at the end.
 
 ```text
-<number> ( "." <number_or_letter> )*
+<number> ( "." <number> )* [ "." <letter> ]?
 ```
 
-**Examples:**
+**Valid examples:** `2`, `2.1`, `2.1.a`, `10.4.b`
 
-| Input   | Parsed as |
-|--------|-----------|
-| `2`     | Top-level topic 2 |
-| `2.1`   | Child of 2 |
-| `2.1.a` | Child of 2.1 (letter suffix) |
+**Invalid examples:** `.2`, `2.`, `2..1`, `Topic 2`, `2.a.1` (letter before number at same depth)
 
-The grammar is implemented deterministically (e.g. in `structure/topic_id_parser.py`). Non-matching headings are not treated as topic IDs by the backbone; they may be used as secondary signals or left to semantic enrichment.
+**Parser responsibilities:**
+
+- Given a string candidate: trim whitespace, validate format, split into parts, normalize letters to lowercase.
+- Return a `TopicID` or `None` if invalid.
+
+**Parser does not:** detect headers, infer hierarchy, or handle missing numbers. It only parses structure.
 
 ---
 
-## List Markers and Substructure
+## 5. What Topic Modeling Does NOT Do
 
-List markers such as **(a)**, **(b)**, **(i)**, etc. are treated as **content within a topic**, not as automatic structural elements.
+This layer does **not**:
 
-- They do not automatically form new TopicNodes.
-- They may be explicitly promoted to structural elements by later semantic analysis (e.g. LLM or rules that interpret “5.1.a” as both a topic header and a list item). Until then, the backbone does not create nodes for list markers alone.
-- This keeps the default hierarchy strict and numbering-driven; list-derived substructure is an optional, explicit enhancement.
+- Detect whether a line is a header
+- Build parent–child relationships
+- Decide if a topic is missing
+- Use LLMs
+- Interpret bullets (a), (b) as structure
+
+It only provides:
+
+- A structured way to represent topic identity (TopicID) and text blocks (TopicBlock, TopicNode)
+
+**Next step:** The module `hierarchy_builder.py` will compare TopicID levels, determine parent–child links, insert synthetic nodes, and detect gaps. That logic depends on these models being stable first.
+
+**List markers:** (a), (b), (i), etc. may be stored as **Subclauses** inside TopicBlock (local structure). In v1 they do **not** form TopicNodes or topic IDs like `2.2.a`; the topic graph has no nodes for subclauses. Future enhancements may add optional LLM-based subclause promotion (see system architecture).
 
 ---
 
