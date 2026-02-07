@@ -6,9 +6,9 @@ This document defines the operational assumptions under which the Semantic Topic
 
 ## 1. Input Format Assumptions
 
-- Input documents are provided as **plain UTF-8 encoded text files** (`.txt`).
-- The system does not handle PDF layout parsing or document formatting extraction.
-- Text has already been extracted from its original source (PDF, DOCX, etc.) before entering this system.
+- **The pipeline ingests plain text** (`.txt`, UTF-8 by default). The loader reads the file; the normalizer applies minimal cleanup. That normalized string is the start of the pipeline.
+- The system does not perform PDF layout parsing or document formatting extraction inside the core pipeline. An **optional PDF→txt utility** (`ingestion/pdf_to_txt.py`) is provided to convert a PDF to .txt for later ingestion; file parsing and processing can be detailed in future considerations.
+- Text has already been extracted from its original source (PDF, DOCX, etc.) before entering the system, or is produced by the PDF→txt utility.
 - The input text may contain minor formatting inconsistencies, but is generally readable and structurally intact.
 
 ---
@@ -78,11 +78,15 @@ This document defines the operational assumptions under which the Semantic Topic
 
 ---
 
-## 8. Out of Scope
+## 8. Output and Jobs
+
+- Deliverables are written under **`output/`** (or `OUTPUT_DIR`). Each run should use a **per-document or per-job subfolder** (e.g. `output/<job_id>/`) so that topic_map.json, cross_reference_graph.pdf, entity_catalogue.csv, entity_relationships.json, and ambiguity_report.csv for that run stay together.
+
+## 9. Out of Scope
 
 The following are intentionally excluded from this version of the system:
 
-- PDF visual layout reconstruction
+- PDF visual layout reconstruction (optional PDF→txt extracts text only)
 - OCR processing
 - Legal reasoning or compliance judgment
 - Natural language summarization

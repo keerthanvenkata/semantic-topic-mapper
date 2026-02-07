@@ -33,15 +33,18 @@ For each **system capability**, the table below states: **inputs needed**, **out
 
 ### 2.1 Ingestion & Normalization
 
+The **pipeline ingests normalized .txt**; that is the start of the pipeline. Loader and normalizer are implemented; PDF→txt is an optional utility.
+
 | Responsibility | Needs | Delivers | Config / Env |
 |----------------|--------|----------|--------------|
-| **Load raw text** | File path or string input; encoding hint | Raw text string; optional encoding used | `INPUT_PATH`, `INPUT_ENCODING` (fallback) |
-| **Clean encoding** | Raw text | Normalized Unicode text | Optional: `NORMALIZE_UNICODE`, `REPLACE_CONTROL_CHARS` |
-| **Remove layout noise** | Normalized text; optional patterns | Text with headers/footers/page numbers stripped | `HEADER_FOOTER_PATTERNS`, `PAGE_NUMBER_PATTERN` (or regex file path) |
-| **Normalize whitespace** | Cleaned text | Single-line breaks where appropriate; no stray tabs/multiple spaces | `WHITESPACE_NORMALIZATION` (e.g. "aggressive" / "conservative") |
-| **Coarse segmentation** | Normalized text | List of segments (e.g. by double newline or paragraph); optional span offsets | — |
+| **Load raw text** | File path; encoding | Raw text string | `INPUT_PATH`, `INPUT_ENCODING`; `load_text()` / `load_text_from_config()` |
+| **Normalize text** | Raw text | Normalized string (line endings, strip trailing, optional Unicode/control chars) | `NORMALIZE_UNICODE`; `normalize()` / `normalize_for_parsing()` |
+| **PDF → .txt (utility)** | PDF path | .txt file on disk (for later ingestion) | Optional; `pdf_to_txt()` in `ingestion/pdf_to_txt.py`; requires `pypdf` |
+| **Coarse segmentation** | Normalized text | List of segments (e.g. by paragraph); optional span offsets | — (segmenter) |
 
-**Deliverable (internal):** Normalized document text + optional segment boundaries with character spans. No user-facing file yet.
+**Output layout:** Default `OUTPUT_DIR` is `output/`. Each document/job should use a subfolder (e.g. `output/<job_id>/`) for that run’s deliverables. See [Ingestion and Output](arch/ingestion.md).
+
+**Deliverable (internal):** Normalized document text; optional segment boundaries. No layout reconstruction (per assumptions).
 
 ---
 

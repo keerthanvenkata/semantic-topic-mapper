@@ -17,7 +17,7 @@ This is **not** a chatbot, summarizer, or RAG system. It is a **document structu
 
 ## Input Assumptions
 
-- Input is **normalized plain text** (e.g. UTF-8 `.txt`). PDFs are converted to text *before* entering the system.
+- **Ingestion starts from normalized .txt.** The pipeline loads a plain text file (loader), applies minimal normalization (line endings, trailing whitespace), and that normalized string is what structure and later stages consume. PDFs (or other formats) must be converted to .txt *before* ingestion; an optional PDF→txt utility is provided. See [Ingestion and Output](arch/ingestion.md).
 - Layout artifacts (line breaks, headers, footers) may exist and are handled in preprocessing.
 - Topic headers are detected deterministically using pattern matching and conservative heuristics (e.g. title must not end with a period; standalone numbers > 50 rejected) so numbered sentences and years are not misclassified.
 - Documents may contain inconsistent numbering, missing sections, implicit references, and undefined entities.
@@ -30,9 +30,9 @@ For the full set of operational assumptions, see [Assumptions](assumptions.md).
 ## High-Level Pipeline
 
 ```text
-Raw Text
+Load .txt → Normalize (ingestion)
     ↓
-Text Normalization
+Normalized Text (start of pipeline)
     ↓
 Deterministic Structural Parsing
     ↓

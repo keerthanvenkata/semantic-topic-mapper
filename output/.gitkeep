@@ -1,0 +1,4 @@
+# Output directory: pipeline writes deliverables here.
+# Each document/job uses a subfolder, e.g. output/<job_id>/ or output/<document_name>/.
+# This file keeps the directory in git when empty. For the sample document (data/sample_document.txt),
+# one output subfolder may be committed for reference; other output subfolders remain untracked by default.

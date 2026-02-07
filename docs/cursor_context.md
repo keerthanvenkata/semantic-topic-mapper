@@ -35,7 +35,7 @@ It is NOT a chatbot, RAG system, or agent framework.
 
 src/semantic_topic_mapper/
 models/    # shared data models (topic, reference, entity, ambiguity)
-ingestion/ # text loading and normalization
+ingestion/ # loader, text normalizer; optional PDF→txt utility (see docs/arch/ingestion.md)
 structure/ # topic blocks and hierarchy
 references/ # cross-reference detection
 entities/ # entity extraction
