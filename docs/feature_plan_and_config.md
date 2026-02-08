@@ -156,6 +156,8 @@ The **pipeline ingests normalized .txt**; that is the start of the pipeline. Loa
 
 ### 2.9 Deliverable Export
 
+**Implemented:** Exporters in `outputs/` are thin serializers only (no LLM or inference): **topic_map_exporter** (nodes → JSON), **entity_catalogue_exporter** (entities → CSV), **entity_relationship_exporter** (list of **EntityRelationship** → JSON; **EntityRelationship** is defined in `entities/entity_models.py` alongside Entity and EntityMention), **ambiguity_report_exporter** (AuditIssue list → CSV), **reference_graph_exporter** (adjacency dict → PDF via networkx/matplotlib). Topic map uses **block.title** for each node; in v1 title is already clean; if segmentation ever includes full header text, keep title normalized in the exporter.
+
 | Output File | Source | Config / Env |
 |-------------|--------|--------------|
 | `topic_map.json` | Topic hierarchy + graph | `OUTPUT_DIR`, `TOPIC_MAP_FILENAME` |

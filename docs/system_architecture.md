@@ -78,7 +78,7 @@ For grammar, list-marker handling, and pipeline placement, see **[Topic Modeling
 | LLM Layer | Provide structured semantic enrichment |
 | Graph | Maintain topic + entity relationship graphs |
 | Audit | Detect inconsistencies and ambiguities |
-| Outputs | Generate assignment deliverables |
+| Outputs | Thin serializers: topic_map (JSON), entity_catalogue (CSV), entity_relationships (JSON), ambiguity_report (CSV), reference_graph (PDF). EntityRelationship in `entities/entity_models.py`; topic map uses block.title (v1 clean; normalize if full header ever used). |
 
 ---
 
