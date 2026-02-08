@@ -94,6 +94,8 @@ The **pipeline ingests normalized .txt**; that is the start of the pipeline. Loa
 
 ### 2.5 Entity Extraction
 
+**Design (deterministic detector):** The deterministic entity detector **prioritizes precision over recall**. Some entity mentions may be missed in this stage. LLM-based enrichment can propose additional entities or link implicit mentions; such outputs are advisory and surfaced with confidence signals rather than altering the deterministic backbone automatically.
+
 | Responsibility | Needs | Delivers | Config / Env |
 |----------------|--------|----------|--------------|
 | **Entity models** | — | Data classes: Entity, Mention (topic_id, span), Role, Definition | — |

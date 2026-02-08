@@ -43,6 +43,8 @@ The LLM never creates, deletes, or reorganizes the topic hierarchy. All structur
 | **Entity role interpretation** | No. Deterministic layer can detect entity mentions and “hereinafter” definitions. | Yes. Interprets roles, obligations, and relationships (e.g. “must report”, “subject to”) as structured annotations. |
 | **Ambiguity detection** | Yes. Detects missing topic numbers, broken references, orphan text, circular references, undefined entities (e.g. “Zone-C” never defined). | Yes. Flags semantically suspicious or ambiguous phrasing, low-confidence interpretations, and boundary ambiguities. All such findings are written to the ambiguity report; neither layer silently resolves them. |
 
+**Entity detection design:** The deterministic entity detector prioritizes precision over recall; some entity mentions may be missed. LLM-based enrichment can propose additional entities or link implicit mentions, but such outputs are advisory and surfaced with confidence signals rather than altering the deterministic backbone automatically.
+
 ---
 
 ## Compiler Analogy

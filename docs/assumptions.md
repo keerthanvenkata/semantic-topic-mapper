@@ -76,6 +76,7 @@ This document defines the operational assumptions under which the Semantic Topic
 - Entities may be referenced without formal definitions.
 - The system must **record undefined entities** rather than infer missing definitions.
 - Entity roles may be probabilistic when inferred by the LLM.
+- **Deterministic entity detector:** The detector **prioritizes precision over recall**. Some entity mentions may be missed in this stage. Subsequent LLM-based enrichment can propose additional entities or link implicit mentions, but such outputs are treated as **advisory** and surfaced with confidence signals rather than altering the deterministic backbone automatically.
 
 ---
 
