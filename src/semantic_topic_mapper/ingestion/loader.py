@@ -52,3 +52,7 @@ def load_text_from_config() -> str:
     if INPUT_PATH is None:
         raise ValueError("INPUT_PATH is not set; set it in .env or environment")
     return load_text(INPUT_PATH, encoding=INPUT_ENCODING)
+
+
+# Alias for pipeline/orchestration use
+load_text_file = load_text
