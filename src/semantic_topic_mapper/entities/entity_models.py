@@ -1,10 +1,12 @@
 """
-Entity extraction: Entity and EntityMention models.
+Entity extraction: Entity, EntityMention, and EntityRelationship models.
 
-These models represent entities and their mentions in the document. They are
-part of the semantic layer (entity extraction and enrichment), not the
-structural hierarchy (topics, blocks, nodes). This module defines data
-structures only; detection and grouping logic live in other modules.
+These models represent entities, their mentions, and relationships in the
+document. They are part of the semantic layer (entity extraction and
+enrichment), not the structural hierarchy (topics, blocks, nodes).
+EntityRelationship is a core model (source/target entity IDs, relation_type,
+topic_id) used by the entity graph and entity_relationship_exporter. This
+module defines data structures only; detection and grouping logic live elsewhere.
 """
 
 from __future__ import annotations
@@ -58,3 +60,16 @@ class Entity:
     mentions: list[EntityMention]
     definition_text: str | None = None  # set by definition_linker when explicit "X" means ... is found
     definition_topic: TopicID | None = None  # topic where definition appears
+
+
+@dataclass
+class EntityRelationship:
+    """
+    A directed relationship between two entities (e.g. source reports to target).
+    Used for entity graph and export; relation_type is open in v1.
+    """
+
+    source_entity_id: str
+    target_entity_id: str
+    relation_type: str
+    topic_id: TopicID  # topic where the relationship is expressed
