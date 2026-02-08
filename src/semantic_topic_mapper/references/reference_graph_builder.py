@@ -5,6 +5,10 @@ Builds a directed graph of topic-to-topic references (adjacency list keyed by
 topic_id.raw). Detects structural issues: references to missing topics or to
 synthetic (placeholder) topics. This layer only validates structural presence
 of targets, not semantic correctness. Does not use LLMs or modify the hierarchy.
+
+Optional future enhancements (not in v1): additional issue types such as
+"self_reference" or "circular_reference"; per-edge reference counts; or
+storing a reverse graph for backward lookups.
 """
 
 from __future__ import annotations

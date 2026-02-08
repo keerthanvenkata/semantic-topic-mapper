@@ -49,6 +49,18 @@ Deterministic detection of **explicit** "Topic &lt;ID&gt;" references is impleme
 
 ---
 
+## Reference Graph and Issues (v1)
+
+The module `references/reference_graph_builder.py` builds a directed reference graph and detects structural reference issues. It does not use LLMs or modify the hierarchy.
+
+- **Inputs:** TopicNode dict (real + synthetic nodes) and list of TopicReference (e.g. from explicit detection).
+- **Outputs:** (1) A directed adjacency list `dict[str, set[str]]` (topic_id.raw → set of referenced raw IDs). (2) A list of **ReferenceIssue** objects for references whose target is missing or is a synthetic (placeholder) node. Issue types in v1: `"missing_topic"`, `"synthetic_target"`. One issue per problematic reference occurrence; no aggressive deduplication.
+- **ReferenceIssue:** `source_topic_id`, `target_topic_id`, `issue_type`, `start_char`, `end_char`. Used for ambiguity reporting and exports.
+
+**Optional future enhancements (not in v1):** Additional issue types (e.g. `"self_reference"`, `"circular_reference"`), per-edge reference counts, or storing a reverse graph for backward lookups. v1 is intentionally minimal and correct.
+
+---
+
 ## Relationship to Topic Modeling
 
 - **TopicBlock** includes `subclauses: list[Subclause]`. In v1, subclauses remain inside the block and are not promoted to the topic hierarchy.

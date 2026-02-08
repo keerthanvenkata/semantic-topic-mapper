@@ -111,6 +111,10 @@ These signals would remain **advisory** and would not alter the deterministic st
 
 In v1, subclauses (a), (b), (c) never become TopicNodes; they remain local structure inside TopicBlock. Future versions could introduce optional, LLM-based analysis to suggest when a subclause might be promoted to a structural element (e.g. as a synthetic topic or as a first-class navigation target). Any such feature would remain advisory and configurable; the default would stay deterministic (no promotion).
 
+### Reference graph (optional enhancements)
+
+v1 builds a directed reference graph and detects `missing_topic` and `synthetic_target` issues only. Optional future extensions (not needed for v1): additional issue types (e.g. self-reference, circular reference), per-edge reference counts, or a reverse graph for backward lookups. See [References and Subclauses](arch/references_and_subclauses.md#reference-graph-and-issues-v1).
+
 ### Missed topic boundaries (false negatives)
 
 The header detector is conservative; some true topic boundaries may be missed and merged into a single TopicBlock. This is an accepted v1 tradeoff (false positives are more damaging than false negatives). Refs and entities are still extracted; ambiguity detection may flag long or heterogeneous blocks. Future versions may add **LLM-assisted semantic boundary analysis** (detect topic shifts, suggest missing headers, confidence scores) as advisory signals in the ambiguity report. See [Topic Modeling Foundations](arch/topic_modeling.md#5b-handling-missed-topic-boundaries-false-negatives).
