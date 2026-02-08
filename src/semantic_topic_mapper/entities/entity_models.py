@@ -56,3 +56,5 @@ class Entity:
     entity_type: str | None  # e.g. "organization", "role", "temporal"; may be None in v1
     first_seen_topic: TopicID
     mentions: list[EntityMention]
+    definition_text: str | None = None  # set by definition_linker when explicit "X" means ... is found
+    definition_topic: TopicID | None = None  # topic where definition appears
