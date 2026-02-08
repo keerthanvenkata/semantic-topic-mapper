@@ -37,11 +37,11 @@ src/semantic_topic_mapper/
 models/    # shared data models (topic, reference, entity, ambiguity)
 ingestion/ # loader, text normalizer; optional PDF→txt utility (see docs/arch/ingestion.md)
 structure/ # topic_id_parser, header_detector, hierarchy_builder (topic tree + synthetic nodes)
-references/ # reference_detector (explicit "Topic X" from blocks); LLM enricher for implicit/semantic
-entities/ # entity extraction
+references/ # reference_detector (explicit "Topic X"); reference_graph_builder (graph + ReferenceIssue)
+entities/ # entity_models (Entity, EntityMention); deterministic_entity_detector; definition_linker
 llm/ # LLM client, schemas, validators
 graph/ # graph models
-audit/ # ambiguity + consistency checks
+audit/ # ambiguity_detector (run_audit → AuditIssue: synthetic topics, ref issues, undefined/single-mention entities)
 outputs/ # exporters for deliverables
 pipeline/ # orchestration
 

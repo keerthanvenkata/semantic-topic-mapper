@@ -20,6 +20,8 @@ Any uncertainty or ambiguity detected by either layer is **surfaced in the ambig
 - **Do:** Detect ambiguous or underspecified cases, classify them (e.g. undefined entity, implicit reference, boundary ambiguity), attach optional LLM-suggested interpretations as annotations, and record every such case in the ambiguity report with resolution strategies.
 - **Do not:** Automatically pick one interpretation (e.g. “Zone-C” = one specific entity) or alter the knowledge graph structure to “fix” ambiguity. The graph reflects what was deterministically extracted plus validated LLM annotations; the report reflects what remains uncertain.
 
+**Audit layer:** The deterministic **ambiguity detector** (`audit/ambiguity_detector.py`) runs **`run_audit(nodes, reference_issues, entities)`** and returns a list of **AuditIssue** records. These include synthetic topic nodes (missing_topic_content), reference issues (missing_topic, synthetic_target), undefined entities (no definition), and single-mention entities. Each issue has severity (info/warning/error), message, and optional location. This list feeds the ambiguity report; the audit does not resolve or fix issues.
+
 ---
 
 ## Entity Reference Disambiguation

@@ -66,6 +66,7 @@ This document defines the operational assumptions under which the Semantic Topic
 ## 6. Ambiguity Handling Assumptions
 
 - The system **prioritizes flagging ambiguity over resolving it automatically**.
+- The **audit layer** (`audit/ambiguity_detector.py`) aggregates structural and semantic signals into a unified list of **AuditIssue** records (synthetic topics, reference issues, undefined entities, single-mention entities). No LLM; findings are reported, not resolved.
 - Missing topics, undefined entities, and unclear references are recorded in the ambiguity report.
 - The system does not attempt legal interpretation or policy reasoning.
 

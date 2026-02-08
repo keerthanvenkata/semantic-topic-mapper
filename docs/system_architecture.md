@@ -111,6 +111,10 @@ These signals would remain **advisory** and would not alter the deterministic st
 
 In v1, subclauses (a), (b), (c) never become TopicNodes; they remain local structure inside TopicBlock. Future versions could introduce optional, LLM-based analysis to suggest when a subclause might be promoted to a structural element (e.g. as a synthetic topic or as a first-class navigation target). Any such feature would remain advisory and configurable; the default would stay deterministic (no promotion).
 
+### Audit layer (v1)
+
+The **ambiguity detector** (`audit/ambiguity_detector.py`) runs a deterministic audit: **`run_audit(nodes, reference_issues, entities)`** returns a list of **AuditIssue** records. Issue types: **missing_topic_content** (synthetic node; warning), **missing_topic** / **synthetic_target** (reference issues; error/warning), **undefined_entity** (no definition_text; warning), **single_mention_entity** (info). Each AuditIssue has issue_type, severity, message, and optional topic_id/start_char/end_char. This layer surfaces structural and semantic ambiguity for reporting; it does not resolve issues or use LLMs.
+
 ### Reference graph (optional enhancements)
 
 v1 builds a directed reference graph and detects `missing_topic` and `synthetic_target` issues only. Optional future extensions (not needed for v1): additional issue types (e.g. self-reference, circular reference), per-edge reference counts, or a reverse graph for backward lookups. See [References and Subclauses](arch/references_and_subclauses.md#reference-graph-and-issues-v1).

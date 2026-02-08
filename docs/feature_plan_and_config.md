@@ -138,6 +138,8 @@ The **pipeline ingests normalized .txt**; that is the start of the pipeline. Loa
 
 ### 2.8 Consistency & Ambiguity Analysis
 
+**Implemented (deterministic):** `audit/ambiguity_detector.py` — **`run_audit(nodes, reference_issues, entities)`** returns **list[AuditIssue]**. Aggregates: (1) synthetic topic nodes → `missing_topic_content` (warning); (2) reference issues → `missing_topic` (error) or `synthetic_target` (warning); (3) entities with no definition → `undefined_entity` (warning); (4) entities with one mention → `single_mention_entity` (info). **AuditIssue** has issue_type, severity, message, topic_id, start_char, end_char. No LLM; surfaces ambiguity for reporting only.
+
 | Responsibility | Needs | Delivers | Config / Env |
 |----------------|--------|----------|--------------|
 | **Gap analyzer** | Topic tree; topic_id set | Missing topic numbers (e.g. 18.2) | — |
