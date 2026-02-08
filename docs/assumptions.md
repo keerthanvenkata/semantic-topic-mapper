@@ -32,6 +32,7 @@ This document defines the operational assumptions under which the Semantic Topic
 - Bullet points are treated as content within a topic, not automatically as subtopics.
 - The system may create **synthetic placeholder topics** when structural gaps are detected (e.g., Topic 18.2 missing).
 - **Header detection** is conservative: lines are accepted only when they match known patterns (e.g. “TOPIC X: TITLE”, “2.1 Title”) and pass simple heuristics (e.g. title does not end with a period; standalone single numbers > 50 are rejected to avoid years). Numbered sentences and in-line mentions like “Topic 12” are not treated as headers.
+- **Explicit topic references** are detected by scanning for the literal "Topic &lt;ID&gt;" (case-insensitive) in each block's title, paragraph text, and subclauses; the following token is validated with the topic ID parser. **v1:** Title reference spans are approximate (header line offsets within the block are not separately tracked). Implicit or semantic references are handled later by LLM enrichment.
 - **Missed topic boundaries (false negatives)** are an accepted tradeoff: some true headers may be missed, so text can merge into one TopicBlock. False positives (wrong splits) are considered more damaging than false negatives; refs and entities are still extracted at the topic level, and ambiguity detection may flag suspicious blocks.
 
 ---

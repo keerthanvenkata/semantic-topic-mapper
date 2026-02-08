@@ -72,8 +72,8 @@ For grammar, list-marker handling, and pipeline placement, see **[Topic Modeling
 | Subsystem | Responsibility |
 |-----------|----------------|
 | Ingestion | Load and normalize raw text |
-| Structure | Detect topic blocks and build hierarchy |
-| References | Detect and classify topic references |
+| Structure | Detect topic blocks; build topic hierarchy (parent–child, synthetic nodes) |
+| References | Detect explicit "Topic X" references in blocks (title, paragraph, subclauses); LLM enriches implicit/semantic refs later |
 | Entities | Extract entities and their roles |
 | LLM Layer | Provide structured semantic enrichment |
 | Graph | Maintain topic + entity relationship graphs |

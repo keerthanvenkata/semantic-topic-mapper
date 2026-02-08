@@ -37,6 +37,18 @@ References link topics and record where in the source the reference text appears
 
 ---
 
+## Explicit Reference Detection (v1)
+
+Deterministic detection of **explicit** "Topic &lt;ID&gt;" references is implemented in `references/reference_detector.py`. This module does not use LLMs and does not build graphs; implicit or semantic references are handled in later LLM enrichment.
+
+- **`detect_references(blocks: list[TopicBlock]) -> list[TopicReference]`** — For each block with a non-null `topic_id`, scans three regions separately: **(a)** block title (if present), **(b)** paragraph text (`block.raw_text`), **(c)** each subclause’s text.
+- **Pattern:** Looks for the word "Topic" (case-insensitive) followed by a token that is validated with the topic ID parser. Trailing punctuation (e.g. `.`, `,`, `;`, `)`) is stripped before validation. Only valid topic IDs produce a TopicReference; bare numbers without the word "Topic" are not detected.
+- **TopicReference fields:** `source_topic_id` = block’s topic; `target_topic_id` = parsed ID; `relation_type` = `"explicit"`; `start_char` / `end_char` = absolute positions in the document; `source_region_type` = `"title"` | `"paragraph"` | `"subclause"`; `source_region_label` = subclause label (e.g. `"b"`) when in a subclause, else `None`.
+- **v1 limitation:** Title reference spans are **approximate**. Header detection and segmentation do not track exact title offsets within the block, so spans for references found in the title use the block start; they do not point to the exact header line. Paragraph and subclause spans use block/subclause offsets and are accurate.
+- No deduplication is performed in the detector; callers may deduplicate if needed.
+
+---
+
 ## Relationship to Topic Modeling
 
 - **TopicBlock** includes `subclauses: list[Subclause]`. In v1, subclauses remain inside the block and are not promoted to the topic hierarchy.

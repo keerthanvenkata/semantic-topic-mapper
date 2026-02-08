@@ -64,6 +64,8 @@ The **pipeline ingests normalized .txt**; that is the start of the pipeline. Loa
 
 ### 2.3 Topic Hierarchy Construction
 
+**Implemented:** `structure/hierarchy_builder.py` — `build_topic_hierarchy(blocks)` builds the topic tree from TopicBlocks: one TopicNode per block with a topic_id, parent resolution via ancestor candidates, synthetic nodes for missing intermediate IDs, parent–child linking (with duplicate guards), and numeric-aware sort of children. Returns `dict[str, TopicNode]`. Does not modify blocks or use LLMs.
+
 | Responsibility | Needs | Delivers | Config / Env |
 |----------------|--------|----------|--------------|
 | **Parent-child inference** | List of TopicBlocks (with topic_id) | Tree: each node has children; root(s) identified | — |
@@ -77,10 +79,12 @@ The **pipeline ingests normalized .txt**; that is the start of the pipeline. Loa
 
 ### 2.4 Cross-Reference Extraction
 
+**Implemented (deterministic):** `references/reference_detector.py` — `detect_references(blocks)` scans each block's title, paragraph (`raw_text`), and subclauses for explicit "Topic &lt;ID&gt;" (case-insensitive). Token after "Topic" is validated with `parse_topic_id`; trailing punctuation stripped. Produces `TopicReference` with `relation_type="explicit"`, absolute `start_char`/`end_char`, `source_region_type` (title/paragraph/subclause), and `source_region_label` for subclauses. **v1:** Title reference spans are approximate (header line offsets not tracked). No deduplication in the detector. Implicit/semantic refs are handled by the LLM enricher later.
+
 | Responsibility | Needs | Delivers | Config / Env |
 |----------------|--------|----------|--------------|
-| **Deterministic detection** | Normalized text; topic_id set | List of references: topic_id(s), span, type (explicit/range), direction (fwd/back) | Regex patterns or small rule file for “See Topic X”, “per Topic 8”, “Topics 5–9” |
-| **Reference models** | — | Data classes: Reference, Referent (target), span, reference_type | — |
+| **Deterministic detection** | TopicBlocks | List of TopicReference (explicit "Topic X" in title, paragraph, subclauses); spans; source_region_type/label | — |
+| **Reference models** | — | TopicReference: source/target topic_id, relation_type, span, source_region_type, source_region_label | — |
 | **LLM enricher** | Text spans (e.g. “as described above”); context | Structured annotations: implied topic_id, confidence, span | LLM config (see 2.7) |
 | **Reference graph** | References + topic tree | Graph: nodes = topics; edges = reference (with type/label) | — |
 
