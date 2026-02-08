@@ -13,6 +13,7 @@ pydantic>=2.0.0
 # Optional: PDF → .txt conversion (ingestion utility)
 pypdf>=4.0.0
 
-# Optional / add when implementing exporters:
-# graphviz — for cross_reference_graph.pdf
+# Reference graph PDF export (outputs/reference_graph_exporter.py)
+networkx>=3.0
+matplotlib>=3.5
 # (stdlib csv, json sufficient for other exports)
