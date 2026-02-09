@@ -47,11 +47,12 @@ Uses `INPUT_PATH` and `OUTPUT_DIR` from config. See [Configuration](run/config_r
 3. Builds the topic hierarchy (with synthetic nodes for gaps)  
 4. Detects explicit "Topic X" references and builds the reference graph  
 5. Detects entities and links definitions  
-6. Extracts entity relationships (v1: empty)  
-7. Runs the audit (synthetic topics, reference issues, undefined entities, etc.)  
-8. Writes deliverables to the output directory  
+6. Extracts entity relationships (deterministic; optional LLM adds more)  
+7. **Optional LLM enrichment** (when `LLM_API_KEY` is set): entity type classification, relationship extraction, entity ambiguity detection  
+8. Runs the audit (synthetic topics, reference issues, undefined/single-mention entities, plus LLM entity ambiguities)  
+9. Writes deliverables to the output directory  
 
-No LLM is used in the default run. See [System Architecture](system_architecture.md) for the full pipeline.
+Without an API key (or with `SKIP_LLM=true`), the pipeline runs deterministically only. See [System Architecture](system_architecture.md) for the full pipeline.
 
 ---
 
@@ -63,7 +64,7 @@ All files are written under the output directory you specify (or `OUTPUT_DIR`):
 |------|-------------|
 | `topic_map.json` | Topic hierarchy (title, synthetic, children per topic) |
 | `entity_catalogue.csv` | Entities with mention count and definition topic |
-| `entity_relationships.json` | Entity relationships (v1 may be empty) |
+| `entity_relationships.json` | Entity relationships (deterministic + optional LLM) |
 | `ambiguity_report.csv` | Audit issues (warnings, errors, info) |
 | `cross_reference_graph.pdf` | Directed graph of topic references |
 

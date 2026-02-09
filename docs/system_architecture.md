@@ -1,5 +1,7 @@
 # Semantic Topic Mapper — System Architecture
 
+**Status:** Phase complete. Pipeline runs end-to-end with deterministic parsing and optional LLM entity enrichment (Gemini via google.genai).
+
 ## Purpose
 
 Semantic Topic Mapper is a deterministic + LLM-assisted system that extracts structured knowledge from long, complex regulatory-style documents.
