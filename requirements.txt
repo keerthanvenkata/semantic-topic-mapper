@@ -1,8 +1,8 @@
 # Semantic Topic Mapper — dependencies
 # Python 3.10+
 
-# LLM: Google Gemini (gemini-3-flash) via official SDK
-google-generativeai>=0.8.0
+# LLM: Google Gemini via official SDK (google.genai)
+google-genai>=1.0.0
 
 # Config: load .env from project root
 python-dotenv>=1.0.0

@@ -2,7 +2,7 @@
 LLM-based entity enrichment: entity type classification, relationship extraction,
 and entity ambiguity detection.
 
-Uses Gemini (google-generativeai) only. All prompts request JSON; outputs are
+Uses Gemini (google.genai) only. All prompts request JSON; outputs are
 validated before applying. LLM never invents new entities or modifies topic structure.
 """
 
@@ -47,17 +47,13 @@ def _extract_json_from_response(text: str) -> str:
 def _call_gemini_json(prompt: str, description: str) -> dict[str, Any] | None:
     """Call Gemini with temperature 0; parse and return JSON dict or None on failure."""
     try:
-        from semantic_topic_mapper.llm.client import get_gemini_model
+        from semantic_topic_mapper.llm.client import generate_content_text
 
-        model = get_gemini_model()
-        response = model.generate_content(
-            prompt,
-            generation_config={"temperature": 0},
-        )
-        if not response or not response.text:
+        text = generate_content_text(prompt, temperature=0.0)
+        if not text:
             logger.warning("LLM %s: empty response", description)
             return None
-        raw = _extract_json_from_response(response.text)
+        raw = _extract_json_from_response(text)
         return json.loads(raw)
     except ValueError as e:
         logger.warning("LLM %s: config/API key issue: %s", description, e)
