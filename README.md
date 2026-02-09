@@ -20,9 +20,24 @@ Early architecture and structural parsing phase.
 
 Plain text documents (PDFs converted to text beforehand).
 
+## How to run
+
+```bash
+# With a path to a text file (output goes to output/ by default)
+python -m semantic_topic_mapper data/sample_document.txt
+
+# Custom output directory
+python -m semantic_topic_mapper data/sample_document.txt --output output/my_run
+
+# From config: set INPUT_PATH in .env, then
+python -m semantic_topic_mapper
+```
+
+See **[docs/run_guide.md](docs/run_guide.md)** for the full run guide and **docs/run/** for CLI and configuration details.
+
 ## Outputs
 
-- Topic hierarchy map
-- Cross-reference graph
-- Entity catalogue and relationships
-- Ambiguity and consistency report
+- Topic hierarchy map (`topic_map.json`)
+- Cross-reference graph (`cross_reference_graph.pdf`)
+- Entity catalogue and relationships (`entity_catalogue.csv`, `entity_relationships.json`)
+- Ambiguity and consistency report (`ambiguity_report.csv`)
