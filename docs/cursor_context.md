@@ -51,7 +51,7 @@ pipeline/ # main_pipeline.run_pipeline(input_path, output_dir); run_pipeline_fro
 
 ## LLM Stack
 
-Semantic enrichment uses **Google Gemini**, specifically the **gemini-3-flash** model, via the **google-generativeai** Python SDK. The LLM client in `llm/client.py` should be implemented against this SDK; config uses `LLM_API_KEY` (Google AI API key) and `LLM_MODEL` (default `gemini-3-flash`).
+Semantic enrichment uses **Google Gemini**, specifically the **gemini-3-flash-preview** model, via the **google.genai** Python SDK. The LLM client in `llm/client.py` uses this SDK; config uses `LLM_API_KEY` (Google AI API key) and `LLM_MODEL` (default `gemini-3-flash-preview`). Optional: `SKIP_LLM`, `LLM_DEBUG` (saves prompts/responses for debugging).
 
 ---
 

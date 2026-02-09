@@ -70,6 +70,7 @@ OUTPUT_DIR=output
 # LLM (leave empty to skip enrichment)
 LLM_API_KEY=
 LLM_MODEL=gemini-3-flash-preview
+# SKIP_LLM=false
 # LLM_DEBUG=true   # uncomment to save prompts/responses to output/llm_debug/
 ```
 

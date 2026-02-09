@@ -62,6 +62,6 @@ The pipeline order reflects this: structure is fixed first; then semantic enrich
 ## System Design Principles (Summary)
 
 - **Deterministic Backbone** — All structural elements (topics, hierarchy, IDs) are built using deterministic logic.
-- **LLM as Constrained Semantic Parser** — We use **Google Gemini** (model **gemini-3-flash**) via the **google-generativeai** Python SDK for semantic enrichment. LLM outputs must be structured, schema-constrained, grounded in text spans, and validated before acceptance.
+- **LLM as Constrained Semantic Parser** — We use **Google Gemini** (model **gemini-3-flash-preview**) via the **google.genai** Python SDK for semantic enrichment. LLM outputs must be structured, schema-constrained, grounded in text spans, and validated before acceptance.
 - **No Silent Corrections** — Inconsistencies and ambiguities are recorded in the ambiguity report and never auto-fixed without traceability.
 - **Auditable Knowledge Graph** — All extracted knowledge is traceable to source topic, source text span, and extraction method (deterministic vs LLM).

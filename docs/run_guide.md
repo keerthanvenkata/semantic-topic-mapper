@@ -83,3 +83,4 @@ All files are written under the output directory you specify (or `OUTPUT_DIR`):
 - Python 3.10+
 - Dependencies in `requirements.txt` (e.g. `pip install -r requirements.txt`)
 - Input: plain text (`.txt`). For PDFs, convert to .txt first (see [Ingestion](arch/ingestion.md)).
+- Optional: copy `.env.example` to `.env` and set `INPUT_PATH`, `OUTPUT_DIR`; for LLM enrichment set `LLM_API_KEY`. Set `LLM_DEBUG=true` to save prompts and responses under the run’s `llm_debug/` folder for debugging.

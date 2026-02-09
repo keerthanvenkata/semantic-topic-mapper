@@ -33,11 +33,11 @@ These files exist for layout/placeholders but have **no executable implementatio
 | File | Purpose (from comment) |
 |------|------------------------|
 | **LLM** | |
-| `llm/client.py` | LLM API wrapper (Gemini via google-generativeai) |
+| `llm/client.py` | Implemented (Gemini via google.genai); stubs below |
 | `llm/schemas.py` | JSON output schemas for LLM responses |
 | `llm/validator.py` | Validate LLM responses against schemas |
 | `references/llm_reference_enricher.py` | LLM-based interpretation of implicit references |
-| `entities/llm_entity_enricher.py` | LLM-based role and obligation enrichment |
+| `entities/llm_entity_enricher.py` | Implemented (entity types, relationships, ambiguity); reference enricher stub |
 | **Prompts** | |
 | `llm/prompts/entity_semantics.txt` | Entity semantics prompt template |
 | `llm/prompts/reference_semantics.txt` | Reference semantics prompt template |
@@ -76,7 +76,7 @@ The **pipeline does not import** any of the stub audit modules, graph modules, o
 
 ## Not Implemented / Optional (Docs or Code)
 
-- **LLM layer:** Client, schemas, validator, and both enrichers are stubs; config has `LLM_API_KEY`, `skip_llm()`, etc., but pipeline never calls LLM.
+- **LLM layer:** Client and entity enricher (types, relationships, ambiguity) are implemented; pipeline calls them when `skip_llm()` is false. Config: `LLM_API_KEY`, `LLM_MODEL`, `skip_llm()`, `LLM_DEBUG`. Schemas/validator and reference enricher remain stubs.
 - **Graph layer:** `graph/*` are placeholders; hierarchy and reference “graph” are built in `hierarchy_builder` and `reference_graph_builder` (in-memory structures), and exporters write from those. No separate graph data structures from `graph/` are used.
 - **Orphan detection:** `orphan_detector` is a stub; not used in pipeline. Feature plan mentions `ORPHAN_MIN_LENGTH` and orphan spans.
 - **Extra audit modules:** `consistency_checker`, `gap_analyzer`, `risk_scorer`, `unresolved_detector` are stubs. Current audit is only `ambiguity_detector.run_audit` (synthetic topics, reference issues, undefined entities, single-mention entities).
