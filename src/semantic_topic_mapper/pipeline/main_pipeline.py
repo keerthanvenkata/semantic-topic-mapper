@@ -82,3 +82,18 @@ def run_pipeline(input_path: str, output_dir: str) -> None:
     print("  - cross_reference_graph.pdf")
 
     print("[Pipeline] Done.")
+
+
+def run_pipeline_from_config() -> None:
+    """
+    Run the pipeline using INPUT_PATH and OUTPUT_DIR from config.
+    Raises ValueError if INPUT_PATH is not set.
+    """
+    from semantic_topic_mapper.config import INPUT_PATH, OUTPUT_DIR
+
+    if INPUT_PATH is None:
+        raise ValueError(
+            "INPUT_PATH is not set. Set it in .env (e.g. INPUT_PATH=data/sample_document.txt) "
+            "or pass the file path as an argument: python -m semantic_topic_mapper path/to/file.txt"
+        )
+    run_pipeline(str(INPUT_PATH), str(OUTPUT_DIR))
