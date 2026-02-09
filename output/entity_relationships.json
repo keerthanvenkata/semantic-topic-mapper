@@ -1,1 +1,86 @@
-[]
+[
+  {
+    "source": "E10",
+    "target": "E11",
+    "relation_type": "obligation_to",
+    "topic_id": "4.1"
+  },
+  {
+    "source": "E10",
+    "target": "E1",
+    "relation_type": "obligation_to",
+    "topic_id": "4.1"
+  },
+  {
+    "source": "E10",
+    "target": "E19",
+    "relation_type": "obligation_to",
+    "topic_id": "4.1"
+  },
+  {
+    "source": "E10",
+    "target": "E18",
+    "relation_type": "obligation_to",
+    "topic_id": "4.1"
+  },
+  {
+    "source": "E10",
+    "target": "E21",
+    "relation_type": "oversees",
+    "topic_id": "4.1"
+  },
+  {
+    "source": "E10",
+    "target": "E7",
+    "relation_type": "obligation_to",
+    "topic_id": "4.1"
+  },
+  {
+    "source": "E10",
+    "target": "E12",
+    "relation_type": "obligation_to",
+    "topic_id": "4.1"
+  },
+  {
+    "source": "E10",
+    "target": "E14",
+    "relation_type": "obligation_to",
+    "topic_id": "4.1"
+  },
+  {
+    "source": "E10",
+    "target": "E5",
+    "relation_type": "obligation_to",
+    "topic_id": "4.1"
+  },
+  {
+    "source": "E10",
+    "target": "E8",
+    "relation_type": "obligation_to",
+    "topic_id": "4.1"
+  },
+  {
+    "source": "E10",
+    "target": "E13",
+    "relation_type": "obligation_to",
+    "topic_id": "4.1"
+  },
+  {
+    "source": "E16",
+    "target": "E15",
+    "relation_type": "obligation_to",
+    "topic_id": "1.2"
+  },
+  {
+    "source": "E16",
+    "target": "E17",
+    "relation_type": "advises",
+    "topic_id": "1.2"
+  },
+  {
+    "source": "E21",
+    "target": "E20",
+    "relation_type": "obligation_to",
+    "topic_id": "1.2"
+  }
+]

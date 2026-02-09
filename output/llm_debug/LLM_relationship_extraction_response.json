@@ -1,0 +1,12 @@
+{
+  "candidates": [
+    {
+      "finish_reason": "FinishReason.STOP",
+      "parts": [
+        {
+          "text": "```json\n{\n  \"relationships\": [\n    {\n      \"source\": \"Financial Institutions\",\n      \"target\": \"Initial Registration\",\n      \"relation_type\": \"obligation_to\"\n    },\n    {\n      \"source\": \"Financial Institutions\",\n      \"target\": \"Annual Renewal\",\n      \"relation_type\": \"obligation_to\"\n    },\n    {\n      \"source\": \"Financial Institutions\",\n      \"target\": \"Updated Form\",\n      \"relation_type\": \"obligation_to\"\n    },\n    {\n      \"source\": \"Financial Institutions\",\n      \"target\": \"Schedule A\",\n      \"relation_type\": \"obligation_to\"\n    },\n    {\n      \"source\": \"Financial Institutions\",\n      \"target\": \"Zone-C Advisors\",\n      \"relation_type\": \"oversees\"\n    },\n    {\n      \"source\": \"Financial Institutions\",\n      \"target\": \"Disclosure Requirements\",\n      \"relation_type\": \"obligation_to\"\n    },\n    {\n      \"source\": \"Financial Institutions\",\n      \"target\": \"Know Your Client\",\n      \"relation_type\": \"obligation_to\"\n    },\n    {\n      \"source\": \"Financial Institutions\",\n      \"target\": \"Ongoing Monitoring\",\n      \"relation_type\": \"obligation_to\"\n    },\n    {\n      \"source\": \"Financial Institutions\",\n      \"target\": \"Customer Identification Program\",\n      \"relation_type\": \"obligation_to\"\n    },\n    {\n      \"source\": \"Financial Institutions\",\n      \"target\": \"Fidelity Bonds\",\n      \"relation_type\": \"obligation_to\"\n    },\n    {\n      \"source\": \"Financial Institutions\",\n      \"target\": \"Material Conflict\",\n      \"relation_type\": \"obligation_to\"\n    },\n    {\n      \"source\": \"Qualified Advisor\",\n      \"target\": \"Per Topic\",\n      \"relation_type\": \"obligation_to\"\n    },\n    {\n      \"source\": \"Qualified Advisor\",\n      \"target\": \"Qualified Client\",\n      \"relation_type\": \"advises\"\n    },\n    {\n      \"source\": \"Zone-C Advisors\",\n      \"target\": \"Zone-C\",\n      \"relation_type\": \"obligation_to\"\n    }\n  ]\n}\n```"
+        }
+      ]
+    }
+  ]
+}
