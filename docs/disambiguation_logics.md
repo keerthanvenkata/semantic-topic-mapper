@@ -35,6 +35,21 @@ Any uncertainty or ambiguity detected by either layer is **surfaced in the ambig
 3. **Audit:** Every mention that cannot be tied to a defined entity (or that ties to multiple candidates) is listed in the ambiguity report. Undefined or partially defined entities (e.g. “Zone-C”) are flagged with a resolution strategy (e.g. “Request clarification from document owner”).
 4. **No silent resolution:** The system does not choose a single canonical entity for ambiguous mentions; it records the ambiguity and, if present, the LLM-suggested options as annotations for human or downstream review.
 
+### Deterministic vs LLM entity ambiguity
+
+- **Deterministic:** The backbone detects entity mentions and explicit definitions (“X” means …). It flags every entity that has **no** definition_text as **undefined_entity** in the audit. It does not interpret whether a phrase is ambiguous or refers to multiple concepts.
+- **LLM (optional):** When enabled, **entity ambiguity detection** asks the model to identify entities that: (1) appear to include undefined modifiers, (2) are referenced but never clearly defined, or (3) might refer to multiple concepts. Each such finding is emitted as an **AuditIssue** with issue_type=`entity_ambiguity`, severity=warning, and a short reason. These are **appended** to the same ambiguity report as deterministic issues. The LLM never invents new entities; it only comments on entities already in the deterministic list.
+- **Combined:** The report may contain both **undefined_entity** (deterministic: no definition linked) and **entity_ambiguity** (LLM: e.g. “may refer to multiple concepts”). Resolution remains human or downstream; the system does not merge or resolve identities.
+
+### Zone-C Advisors–style cases
+
+Phrases like **“Zone-C Advisors”** or **“advisors in Zone-C”** are classic traps: “Zone-C” might never be formally defined, while “Advisors” might be defined elsewhere. The system handles them as follows:
+
+1. **Deterministic extraction:** The entity detector may produce one or more canonical entities (e.g. “Zone-C Advisors”, “Zone-C”, “Advisors”) depending on pattern rules. Definition linker only sets definition_text/definition_topic when an explicit “X” means … pattern matches. If “Zone-C” is never defined, that entity (if extracted) gets **undefined_entity** in the audit.
+2. **No silent resolution:** We do **not** equate “Zone-C Advisors” with “Advisors” or infer that “Zone-C” is a region. The graph keeps whatever entities were deterministically extracted; the report flags undefined and (if LLM runs) ambiguous ones.
+3. **LLM entity ambiguity (optional):** The LLM can add **entity_ambiguity** issues with reasons such as “modifier Zone-C undefined” or “may refer to multiple concepts”. That gives reviewers explicit signals without changing the entity list or topic structure.
+4. **Resolution strategy:** For Zone-C–style cases, the report recommends requesting clarification from the document owner or adding to a glossary with an “undefined” or “ambiguous” flag rather than auto-resolving.
+
 ---
 
 ## Implicit Reference Disambiguation
@@ -69,6 +84,7 @@ Any uncertainty or ambiguity detected by either layer is **surfaced in the ambig
 | Disambiguation concern      | Deterministic backbone role        | LLM layer role                         | How ambiguity is handled                    |
 |----------------------------|-------------------------------------|----------------------------------------|--------------------------------------------|
 | Entity identity / aliasing | Detect mentions and definitions; flag undefined | Propose alias/role annotations          | Undefined and ambiguous entities in report |
+| Entity ambiguity           | —                                   | Flag undefined modifiers, multi-concept, never clearly defined | entity_ambiguity issues in report (see Zone-C Advisors) |
 | Implicit references        | No interpretation                   | Propose suggested topic ID(s) + confidence | Low confidence / multi-candidate in report |
 | Missing topic IDs          | Detect gaps; optional placeholders  | —                                      | Missing IDs and refs to them in report     |
 | Boundary ambiguity         | —                                   | Flag “could belong to A or B”           | Boundary ambiguity rows in report          |
