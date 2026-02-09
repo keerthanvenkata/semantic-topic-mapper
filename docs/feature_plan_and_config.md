@@ -252,6 +252,11 @@ Optional: if config grows large, split into `config/__init__.py` (re-exports), `
 
 ---
 
+## 3a. How to run
+
+- **CLI:** `python -m semantic_topic_mapper path/to/document.txt` (optional `--output output/my_run`). With no arguments, uses `INPUT_PATH` and `OUTPUT_DIR` from config.
+- **Config:** Single source is `config.py`; paths and flags are overridable via `.env`. See [Run guide](run_guide.md) and [run/](run/) (CLI and config reference).
+
 ## 4. Dependency Flow (Pipeline Order)
 
 For implementation order and testing:

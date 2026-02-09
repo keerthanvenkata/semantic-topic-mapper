@@ -1,6 +1,6 @@
 # Architecture (arch)
 
-Detailed architecture documents linked from [System Architecture](../system_architecture.md).
+Detailed architecture documents linked from [System Architecture](../system_architecture.md). For how to run the pipeline, see [Run guide](../run_guide.md) and [run/](../run/).
 
 | Document | Contents |
 |---------|----------|

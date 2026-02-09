@@ -27,6 +27,12 @@ For the full set of operational assumptions, see [Assumptions](assumptions.md).
 
 ---
 
+## Running the pipeline
+
+Run with a path to a text file: `python -m semantic_topic_mapper path/to/document.txt` (optional `--output output/my_run`). Or set `INPUT_PATH` in `.env` and run `python -m semantic_topic_mapper`. See **[Run guide](run_guide.md)** and **[run/](run/)** for CLI and configuration.
+
+---
+
 ## High-Level Pipeline
 
 ```text

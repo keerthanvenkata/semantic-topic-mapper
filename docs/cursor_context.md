@@ -43,7 +43,7 @@ llm/ # LLM client, schemas, validators
 graph/ # graph models
 audit/ # ambiguity_detector (run_audit → AuditIssue: synthetic topics, ref issues, undefined/single-mention entities)
 outputs/ # thin serializers: topic_map, entity_catalogue, entity_relationships, ambiguity_report, reference_graph (PDF)
-pipeline/ # orchestration
+pipeline/ # main_pipeline.run_pipeline(input_path, output_dir); run_pipeline_from_config() uses config
 
 ```
 
@@ -62,6 +62,14 @@ Semantic enrichment uses **Google Gemini**, specifically the **gemini-3-flash** 
 - Functions should do one thing
 - Avoid hidden magic and global state
 - Add docstrings explaining reasoning, not just mechanics
+
+---
+
+## Running the pipeline
+
+- **With a text file path:** `python -m semantic_topic_mapper path/to/document.txt` (optional: `--output output/my_run`).
+- **From config:** Set `INPUT_PATH` in `.env`, then `python -m semantic_topic_mapper`.
+See [Run guide](docs/run_guide.md) and [docs/run/](docs/run/) for CLI and configuration.
 
 ---
 
