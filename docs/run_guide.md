@@ -4,6 +4,19 @@ This guide describes how to run the pipeline and where to find detailed instruct
 
 ---
 
+## Prerequisites
+
+The package uses a **src layout**. From the project root, install it in editable mode so `python -m semantic_topic_mapper` can find the module:
+
+```bash
+# From project root (where pyproject.toml and src/ live)
+pip install -e .
+```
+
+Use an active virtual environment (e.g. `venv`). Then run the commands below from the same project root.
+
+---
+
 ## Quick start
 
 **Run with a path to a text file:**

@@ -22,6 +22,14 @@ Plain text documents (PDFs converted to text beforehand).
 
 ## How to run
 
+From project root, install the package in editable mode:
+
+```bash
+pip install -e .
+```
+
+Then:
+
 ```bash
 # With a path to a text file (output goes to output/ by default)
 python -m semantic_topic_mapper data/sample_document.txt

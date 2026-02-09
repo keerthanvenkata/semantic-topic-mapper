@@ -1,6 +1,6 @@
 # CLI Reference
 
-The pipeline is run via the package entry point:
+The pipeline is run via the package entry point. Ensure the package is installed in editable mode from project root (`pip install -e .`) so the module is found.
 
 ```bash
 python -m semantic_topic_mapper [INPUT_PATH] [--output OUTPUT_DIR]
