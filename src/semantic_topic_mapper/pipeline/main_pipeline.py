@@ -10,10 +10,16 @@ from __future__ import annotations
 from pathlib import Path
 
 from semantic_topic_mapper.audit.ambiguity_detector import run_audit
+from semantic_topic_mapper.config import skip_llm
 from semantic_topic_mapper.entities.definition_linker import link_entity_definitions
 from semantic_topic_mapper.entities.deterministic_entity_detector import detect_entities
 from semantic_topic_mapper.entities.entity_relationship_extractor import (
     extract_entity_relationships,
+)
+from semantic_topic_mapper.entities.llm_entity_enricher import (
+    detect_entity_ambiguities,
+    enrich_entity_types,
+    extract_llm_entity_relationships,
 )
 from semantic_topic_mapper.ingestion.loader import load_text_file
 from semantic_topic_mapper.outputs.ambiguity_report_exporter import export_ambiguity_report
@@ -63,8 +69,18 @@ def run_pipeline(input_path: str, output_dir: str) -> None:
     print("[Pipeline] Extracting entity relationships...")
     relationships = extract_entity_relationships(entities, blocks)
 
+    if not skip_llm():
+        print("[Pipeline] LLM enrichment (entity types, relationships, ambiguities)...")
+        enrich_entity_types(entities, text)
+        llm_relationships = extract_llm_entity_relationships(entities, text)
+        relationships.extend(llm_relationships)
+        llm_issues = detect_entity_ambiguities(entities, text)
+    else:
+        llm_issues = []
+
     print("[Pipeline] Running audit...")
     issues = run_audit(nodes, reference_issues, entities)
+    issues.extend(llm_issues)
 
     out = Path(output_dir)
     out.mkdir(parents=True, exist_ok=True)
