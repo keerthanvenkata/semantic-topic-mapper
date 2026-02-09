@@ -7,6 +7,7 @@ single end-to-end run. No LLM or business logic here — orchestration only.
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 from semantic_topic_mapper.audit.ambiguity_detector import run_audit
@@ -42,6 +43,8 @@ def run_pipeline(input_path: str, output_dir: str) -> None:
     build hierarchy and reference graph, extract entities, run audit, and
     write all deliverables to output_dir. This is the top-level orchestrator.
     """
+    # So LLM debug (when LLM_DEBUG=true) writes to this run's output dir
+    os.environ["LLM_DEBUG_OUTPUT_DIR"] = output_dir
     print("[Pipeline] Loading text...")
     text = load_text_file(input_path)
 

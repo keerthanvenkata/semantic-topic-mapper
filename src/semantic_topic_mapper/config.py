@@ -75,6 +75,8 @@ LLM_API_KEY: Optional[str] = _env("LLM_API_KEY")
 LLM_MODEL: str = _env("LLM_MODEL") or "gemini-3-flash-preview"
 LLM_TIMEOUT: int = _env_int("LLM_TIMEOUT", 60)
 PROMPTS_DIR: Optional[Path] = _env_path("PROMPTS_DIR")
+# When True, save each LLM prompt and raw response under OUTPUT_DIR/llm_debug/ (for debugging).
+LLM_DEBUG: bool = _env_bool("LLM_DEBUG", False)
 
 
 def skip_llm() -> bool:

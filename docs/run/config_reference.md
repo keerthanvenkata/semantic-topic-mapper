@@ -49,10 +49,11 @@ All configurables are defined in one place: **`src/semantic_topic_mapper/config.
 | Variable | Type | Default | Description |
 |----------|------|---------|-------------|
 | `LLM_API_KEY` | str | — | Google AI API key for Gemini. If unset, LLM enrichment is skipped. |
-| `LLM_MODEL` | str | `gemini-3-flash` | Model name. |
+| `LLM_MODEL` | str | `gemini-3-flash-preview` | Model name. |
 | `LLM_TIMEOUT` | int | `60` | Timeout in seconds for LLM calls. |
 | `PROMPTS_DIR` | path | — | Optional path to prompt templates. |
 | `SKIP_LLM` | bool | `false` | If true, skip LLM even when API key is set. |
+| `LLM_DEBUG` | bool | `false` | If true, save each LLM prompt and raw response under `OUTPUT_DIR/llm_debug/` (or the run’s `--output` dir). Use for debugging empty or unexpected responses; can be removed or disabled after. |
 
 ---
 
@@ -68,7 +69,8 @@ OUTPUT_DIR=output
 
 # LLM (leave empty to skip enrichment)
 LLM_API_KEY=
-LLM_MODEL=gemini-3-flash
+LLM_MODEL=gemini-3-flash-preview
+# LLM_DEBUG=true   # uncomment to save prompts/responses to output/llm_debug/
 ```
 
 ---

@@ -49,7 +49,7 @@ def _call_gemini_json(prompt: str, description: str) -> dict[str, Any] | None:
     try:
         from semantic_topic_mapper.llm.client import generate_content_text
 
-        text = generate_content_text(prompt, temperature=0.0)
+        text = generate_content_text(prompt, temperature=0.0, debug_label=description)
         if not text:
             logger.warning("LLM %s: empty response", description)
             return None
