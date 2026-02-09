@@ -1,0 +1,23 @@
+entity_id,canonical_name,entity_type,first_seen_topic,definition_topic,mention_count
+E1,Annual Renewal,,2.2,,2
+E2,Beneficial Owner,,32.3,,2
+E3,C Advisors,,1.2,,3
+E4,Coverage for,,12.2,,2
+E5,Customer Identification Program,,6.1,,2
+E6,Date and,,20.1,,2
+E7,Disclosure Requirements,,3.3,,3
+E8,Fidelity Bonds,,12.3,,2
+E9,Financial Institution,,1.2,1.2,3
+E10,Financial Institutions,,4.1,,2
+E11,Initial Registration,,2.1,,2
+E12,Know Your Client,,4.1,,2
+E13,Material Conflict,,32.3,,2
+E14,Ongoing Monitoring,,4.2,,2
+E15,Per Topic,,20.3,,2
+E16,Qualified Advisor,,1.2,1.2,2
+E17,Qualified Client,,32.3,,2
+E18,Schedule A,,2.2,,3
+E19,Updated Form,,2.2,,2
+E20,Zone-C,,32.3,,2
+E21,Zone-C Advisors,,1.2,1.2,2
+E22,for Zone,,6.1,,3

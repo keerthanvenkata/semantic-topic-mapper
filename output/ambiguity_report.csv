@@ -1,0 +1,23 @@
+issue_type,severity,message,topic_id,start_char,end_char
+missing_topic,error,Reference from 18.1 to missing topic 18.2.,18.1,13696,13706
+missing_topic,error,Reference from 18.3 to missing topic 18.2.,18.3,13959,13969
+missing_topic,error,Reference from 18.3 to missing topic 18.2.,18.3,13990,14000
+undefined_entity,warning,"Entity ""Annual Renewal"" has no explicit definition.",2.2,,
+undefined_entity,warning,"Entity ""Beneficial Owner"" has no explicit definition.",32.3,,
+undefined_entity,warning,"Entity ""C Advisors"" has no explicit definition.",1.2,,
+undefined_entity,warning,"Entity ""Coverage for"" has no explicit definition.",12.2,,
+undefined_entity,warning,"Entity ""Customer Identification Program"" has no explicit definition.",6.1,,
+undefined_entity,warning,"Entity ""Date and"" has no explicit definition.",20.1,,
+undefined_entity,warning,"Entity ""Disclosure Requirements"" has no explicit definition.",3.3,,
+undefined_entity,warning,"Entity ""Fidelity Bonds"" has no explicit definition.",12.3,,
+undefined_entity,warning,"Entity ""Financial Institutions"" has no explicit definition.",4.1,,
+undefined_entity,warning,"Entity ""Initial Registration"" has no explicit definition.",2.1,,
+undefined_entity,warning,"Entity ""Know Your Client"" has no explicit definition.",4.1,,
+undefined_entity,warning,"Entity ""Material Conflict"" has no explicit definition.",32.3,,
+undefined_entity,warning,"Entity ""Ongoing Monitoring"" has no explicit definition.",4.2,,
+undefined_entity,warning,"Entity ""Per Topic"" has no explicit definition.",20.3,,
+undefined_entity,warning,"Entity ""Qualified Client"" has no explicit definition.",32.3,,
+undefined_entity,warning,"Entity ""Schedule A"" has no explicit definition.",2.2,,
+undefined_entity,warning,"Entity ""Updated Form"" has no explicit definition.",2.2,,
+undefined_entity,warning,"Entity ""Zone-C"" has no explicit definition.",32.3,,
+undefined_entity,warning,"Entity ""for Zone"" has no explicit definition.",6.1,,
